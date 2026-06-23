@@ -33,12 +33,12 @@ export function WhoItsFor() {
         <div className="grid md:grid-cols-2 gap-8">
           {personas.map((p) => (
             <div key={p.title} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-              <div className="text-4xl mb-4">{p.emoji}</div>
+              <div className="text-4xl mb-4"><span aria-hidden="true">{p.emoji}</span></div>
               <h3 className="text-xl font-bold text-gray-900 mb-5">{p.title}</h3>
               <ul className="space-y-3">
                 {p.points.map((point) => (
                   <li key={point} className="flex gap-3 text-gray-600 text-sm leading-relaxed">
-                    <span className="text-blue-500 font-bold mt-0.5">✓</span>
+                    <span aria-hidden="true" className="text-blue-500 font-bold mt-0.5">✓</span>
                     {point}
                   </li>
                 ))}

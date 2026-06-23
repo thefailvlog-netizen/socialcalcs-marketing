@@ -10,7 +10,7 @@ export function CalculatorPreview() {
             A clean, branded calculator page they can use in 30 seconds — no signup, no friction.
           </p>
         </div>
-        <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+        <div aria-hidden="true" className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
           {/* Browser chrome */}
           <div className="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center gap-3">
             <div className="flex gap-1.5">
