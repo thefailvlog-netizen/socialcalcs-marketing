@@ -1,65 +1,78 @@
-import Image from "next/image";
+import { getCopy } from '@/lib/copy'
+import { Hero } from '@/components/sections/hero'
+import { HowItWorks } from '@/components/sections/how-it-works'
+import { Features } from '@/components/sections/features'
+import { CalculatorPreview } from '@/components/sections/calculator-preview'
+import { WhoItsFor } from '@/components/sections/who-its-for'
+import { SocialProof } from '@/components/sections/social-proof'
+import { PricingTeaser } from '@/components/sections/pricing-teaser'
+import { CtaBanner } from '@/components/sections/cta-banner'
 
-export default function Home() {
+export const revalidate = 60
+
+export default async function HomePage() {
+  const [
+    eyebrow, headline, subheadline, ctaPrimary, ctaSecondary,
+    step1Title, step1Desc, step2Title, step2Desc, step3Title, step3Desc,
+    feat1Title, feat1Desc, feat2Title, feat2Desc,
+    feat3Title, feat3Desc, feat4Title, feat4Desc,
+    proMonthlyPrice,
+    bannerHeadline, bannerSubheadline, bannerCta,
+  ] = await Promise.all([
+    getCopy('hero.eyebrow', 'Lead Engine for Financial Pros'),
+    getCopy('hero.headline', 'Turn your bio link into a lead machine.'),
+    getCopy('hero.subheadline', 'Branded microsites and calculators for mortgage brokers and real estate agents.'),
+    getCopy('hero.cta_primary', 'Start Free'),
+    getCopy('hero.cta_secondary', 'See Demo'),
+    getCopy('howitworks.step1.title', 'Share your link'),
+    getCopy('howitworks.step1.description', 'Add your SocialCalcs link to your Instagram bio, LinkedIn profile, or email signature.'),
+    getCopy('howitworks.step2.title', 'Visitors use your calculator'),
+    getCopy('howitworks.step2.description', 'They enter their numbers into a branded calculator — no app download needed.'),
+    getCopy('howitworks.step3.title', 'You get the lead'),
+    getCopy('howitworks.step3.description', 'The moment they hit calculate, their contact info lands in your dashboard.'),
+    getCopy('features.card1.title', 'Branded Microsite'),
+    getCopy('features.card1.description', 'Your own page at socialcalcs.com/yourname.'),
+    getCopy('features.card2.title', 'Embedded Calculators'),
+    getCopy('features.card2.description', 'Mortgage, affordability, stress test, and more.'),
+    getCopy('features.card3.title', 'PDF Lead Magnet'),
+    getCopy('features.card3.description', 'Every calculation generates a branded PDF report.'),
+    getCopy('features.card4.title', 'Lead Dashboard'),
+    getCopy('features.card4.description', 'Every lead in one place with the numbers they ran.'),
+    getCopy('pricing.pro.price_monthly', '49'),
+    getCopy('cta_banner.headline', 'Ready to turn followers into clients?'),
+    getCopy('cta_banner.subheadline', 'Join mortgage brokers and real estate agents already using SocialCalcs.'),
+    getCopy('cta_banner.cta', 'Start Free — No credit card required'),
+  ])
+
+  const steps = [
+    { number: '1', title: step1Title, description: step1Desc },
+    { number: '2', title: step2Title, description: step2Desc },
+    { number: '3', title: step3Title, description: step3Desc },
+  ]
+
+  const features = [
+    { icon: '🖼️', title: feat1Title, description: feat1Desc },
+    { icon: '🧮', title: feat2Title, description: feat2Desc },
+    { icon: '📄', title: feat3Title, description: feat3Desc },
+    { icon: '📊', title: feat4Title, description: feat4Desc },
+  ]
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <>
+      <Hero
+        eyebrow={eyebrow}
+        headline={headline}
+        subheadline={subheadline}
+        ctaPrimary={ctaPrimary}
+        ctaSecondary={ctaSecondary}
+      />
+      <HowItWorks steps={steps} />
+      <Features features={features} />
+      <CalculatorPreview />
+      <WhoItsFor />
+      <SocialProof />
+      <PricingTeaser proMonthlyPrice={proMonthlyPrice} />
+      <CtaBanner headline={bannerHeadline} subheadline={bannerSubheadline} cta={bannerCta} />
+    </>
+  )
 }
