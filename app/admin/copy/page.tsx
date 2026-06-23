@@ -2,13 +2,20 @@ import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { supabase } from '@/lib/supabase'
 import { revalidatePath } from 'next/cache'
+import { createHmac } from 'crypto'
+
+function sessionToken(): string {
+  return createHmac('sha256', process.env.ADMIN_PASSWORD!)
+    .update('admin-session')
+    .digest('hex')
+}
 
 async function login(formData: FormData) {
   'use server'
   const password = formData.get('password') as string
   if (password === process.env.ADMIN_PASSWORD) {
     const cookieStore = await cookies()
-    cookieStore.set('admin_session', process.env.ADMIN_PASSWORD!, {
+    cookieStore.set('admin_session', sessionToken(), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
@@ -23,10 +30,14 @@ async function saveCopy(formData: FormData) {
   const key = formData.get('key') as string
   const value = formData.get('value') as string
 
-  await supabase
+  const { error } = await supabase
     .from('site_copy')
     .update({ value })
     .eq('key', key)
+
+  if (error) {
+    redirect('/admin/copy?error=' + encodeURIComponent(error.message))
+  }
 
   revalidatePath('/')
   revalidatePath('/pricing')
@@ -43,12 +54,12 @@ async function logout() {
 export default async function AdminCopyPage({
   searchParams,
 }: {
-  searchParams: Promise<{ saved?: string }>
+  searchParams: Promise<{ saved?: string; error?: string }>
 }) {
   const cookieStore = await cookies()
   const session = cookieStore.get('admin_session')
-  const isAuthed = session?.value === process.env.ADMIN_PASSWORD
-  const { saved } = await searchParams
+  const isAuthed = session?.value === sessionToken()
+  const { saved, error } = await searchParams
 
   if (!isAuthed) {
     return (
@@ -94,6 +105,12 @@ export default async function AdminCopyPage({
       {saved && (
         <div className="bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm mb-6">
           Saved: <code className="font-mono">{saved}</code>. Live site updates within 60 seconds.
+        </div>
+      )}
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm mb-6">
+          Save failed: {error}
         </div>
       )}
 
