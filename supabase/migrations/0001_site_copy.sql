@@ -14,6 +14,7 @@ begin
 end;
 $$;
 
+drop trigger if exists site_copy_updated_at on site_copy;
 create trigger site_copy_updated_at
   before update on site_copy
   for each row execute function update_updated_at();
