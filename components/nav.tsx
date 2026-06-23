@@ -1,15 +1,27 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.socialcalcs.com'
 
 export function Nav() {
   const [open, setOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    function handleClick(e: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [open])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="font-bold text-xl text-blue-600 tracking-tight">
@@ -44,6 +56,8 @@ export function Nav() {
           className="md:hidden p-2 text-gray-600"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <span className="block w-5 h-0.5 bg-current mb-1" />
           <span className="block w-5 h-0.5 bg-current mb-1" />
@@ -53,13 +67,13 @@ export function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-4">
+        <div id="mobile-menu" className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-4">
           <Link href="/#features" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Features</Link>
           <Link href="/#how-it-works" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>How it works</Link>
           <Link href="/pricing" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Pricing</Link>
           <hr className="border-gray-100" />
-          <a href={`${APP_URL}/login`} className="text-sm font-medium text-gray-600">Log in</a>
-          <a href={`${APP_URL}/signup`} className="text-sm font-semibold bg-blue-600 text-white px-4 py-2 rounded-lg text-center">
+          <a href={`${APP_URL}/login`} className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Log in</a>
+          <a href={`${APP_URL}/signup`} className="text-sm font-semibold bg-blue-600 text-white px-4 py-2 rounded-lg text-center" onClick={() => setOpen(false)}>
             Get Started
           </a>
         </div>
