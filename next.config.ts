@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "connect-src 'self' https://jzopknytzwjitakkrsgw.supabase.co",
+              `connect-src 'self' ${process.env.SUPABASE_URL ?? 'https://jzopknytzwjitakkrsgw.supabase.co'}`,
               "img-src 'self' data:",
               "font-src 'self' https://fonts.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
