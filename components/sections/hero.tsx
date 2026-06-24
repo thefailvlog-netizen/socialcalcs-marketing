@@ -10,7 +10,7 @@ interface HeroProps {
 
 export function Hero({ eyebrow, headline, subheadline, ctaPrimary, ctaSecondary }: HeroProps) {
   return (
-    <section className="bg-gradient-to-br from-blue-600 to-blue-900 text-white py-24 px-6">
+    <section className="bg-gradient-to-br from-blue-600 to-blue-900 text-white py-16 md:py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <div className="inline-block text-blue-200 text-xs font-semibold tracking-widest uppercase mb-6">
           {eyebrow}

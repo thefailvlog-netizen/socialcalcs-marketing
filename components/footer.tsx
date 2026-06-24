@@ -14,7 +14,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-12 text-sm">
+          <div className="flex flex-col sm:flex-row gap-8 text-sm">
             <div className="flex flex-col gap-3">
               <span className="text-white font-medium">Product</span>
               <Link href="/#features" className="hover:text-white transition-colors">Features</Link>

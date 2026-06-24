@@ -14,7 +14,7 @@ export function CtaBanner({ headline, subheadline, cta }: CtaBannerProps) {
         <p className="text-blue-100 text-lg mb-10 leading-relaxed">{subheadline}</p>
         <a
           href={`${APP_URL}/signup`}
-          className="bg-white text-blue-700 font-bold px-10 py-4 rounded-xl hover:bg-blue-50 transition-colors inline-block"
+          className="bg-white text-blue-700 font-bold px-10 py-4 rounded-xl hover:bg-blue-50 transition-colors block sm:inline-block w-full sm:w-auto text-center"
         >
           {cta}
         </a>

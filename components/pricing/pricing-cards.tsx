@@ -90,7 +90,7 @@ export function PricingCards({
             key={tier.name}
             className={`rounded-2xl p-8 border flex flex-col ${
               tier.highlighted
-                ? 'bg-blue-600 border-blue-500 text-white shadow-xl scale-105'
+                ? 'bg-blue-600 border-blue-500 text-white shadow-xl md:scale-105'
                 : 'bg-white border-gray-200 text-gray-900'
             }`}
           >
