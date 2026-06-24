@@ -6,8 +6,8 @@ import { PricingCards } from '@/components/pricing/pricing-cards'
 import { Faq } from '@/components/pricing/faq'
 
 const PRICES = {
-  proMonthly: '49',
-  proAnnual: '39',
+  proMonthly: '20',
+  proAnnual: '16',
   businessMonthly: '99',
   businessAnnual: '79',
 }

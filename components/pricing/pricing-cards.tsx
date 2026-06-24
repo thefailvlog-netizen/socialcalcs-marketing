@@ -9,6 +9,7 @@ interface PricingTier {
   description: string
   features: string[]
   cta: string
+  ctaHref: string
   highlighted: boolean
 }
 
@@ -40,6 +41,7 @@ export function PricingCards({
         'SocialCalcs branding',
       ],
       cta: 'Start Free',
+      ctaHref: `${APP_URL}/signup?plan=free`,
       highlighted: false,
     },
     {
@@ -57,13 +59,14 @@ export function PricingCards({
         'Priority support',
       ],
       cta: 'Get Started',
+      ctaHref: `${APP_URL}/signup?plan=pro`,
       highlighted: true,
     },
     {
-      name: 'Business',
-      monthlyPrice: businessMonthlyPrice,
-      annualPrice: businessAnnualPrice,
-      description: 'For teams and brokerages.',
+      name: 'Enterprise',
+      monthlyPrice: 'custom',
+      annualPrice: 'custom',
+      description: 'For brokerages and enterprise teams.',
       features: [
         'Everything in Pro',
         'Up to 5 microsites',
@@ -72,7 +75,8 @@ export function PricingCards({
         'CRM integrations (coming soon)',
         'Dedicated support',
       ],
-      cta: 'Get Started',
+      cta: 'Contact Us',
+      ctaHref: 'mailto:support@socialcalcs.com',
       highlighted: false,
     },
   ]
@@ -95,12 +99,18 @@ export function PricingCards({
                 {tier.name}
               </div>
               <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold">${price}</span>
-                <span className={`text-sm mb-1.5 ${tier.highlighted ? 'text-blue-200' : 'text-gray-400'}`}>
-                  {price === '0' ? '' : '/mo'}
-                </span>
+                {price === 'custom' ? (
+                  <span className="text-2xl font-extrabold">Custom pricing</span>
+                ) : (
+                  <span className="text-4xl font-extrabold">${price}</span>
+                )}
+                {price !== 'custom' && (
+                  <span className={`text-sm mb-1.5 ${tier.highlighted ? 'text-blue-200' : 'text-gray-400'}`}>
+                    {price === '0' ? '' : '/mo'}
+                  </span>
+                )}
               </div>
-              {annual && price !== '0' && (
+              {annual && price !== '0' && price !== 'custom' && (
                 <div className={`text-xs ${tier.highlighted ? 'text-blue-200' : 'text-green-600'}`}>
                   Billed annually
                 </div>
@@ -120,7 +130,7 @@ export function PricingCards({
             </ul>
 
             <a
-              href={`${APP_URL}/signup?plan=${tier.name.toLowerCase()}`}
+              href={tier.ctaHref}
               className={`text-center font-semibold py-3 rounded-xl transition-colors text-sm ${
                 tier.highlighted
                   ? 'bg-white text-blue-700 hover:bg-blue-50'

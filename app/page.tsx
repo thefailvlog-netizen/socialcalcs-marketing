@@ -38,7 +38,7 @@ export default async function HomePage() {
     getCopy('features.card3.description', 'Every calculation generates a branded PDF report.'),
     getCopy('features.card4.title', 'Lead Dashboard'),
     getCopy('features.card4.description', 'Every lead in one place with the numbers they ran.'),
-    getCopy('pricing.pro.price_monthly', '49'),
+    getCopy('pricing.pro.price_monthly', '20'),
     getCopy('cta_banner.headline', 'Ready to turn followers into clients?'),
     getCopy('cta_banner.subheadline', 'Join mortgage brokers and real estate agents already using SocialCalcs.'),
     getCopy('cta_banner.cta', 'Start Free — No credit card required'),
