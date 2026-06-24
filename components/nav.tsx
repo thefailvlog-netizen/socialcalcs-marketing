@@ -30,8 +30,8 @@ export function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-          <Link href="/#features" className="hover:text-blue-600 transition-colors">Features</Link>
           <Link href="/#how-it-works" className="hover:text-blue-600 transition-colors">How it works</Link>
+          <Link href="/#features" className="hover:text-blue-600 transition-colors">Features</Link>
           <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
         </div>
 
@@ -68,8 +68,8 @@ export function Nav() {
       {/* Mobile menu */}
       {open && (
         <div id="mobile-menu" className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-4">
-          <Link href="/#features" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Features</Link>
           <Link href="/#how-it-works" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>How it works</Link>
+          <Link href="/#features" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Features</Link>
           <Link href="/pricing" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Pricing</Link>
           <hr className="border-gray-100" />
           <a href={`${APP_URL}/login`} className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Log in</a>
