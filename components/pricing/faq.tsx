@@ -1,59 +1,57 @@
 'use client'
 
-import { useState } from 'react'
-
 const faqs = [
   {
-    question: 'Do I need a website to use SocialCalcs?',
-    answer: 'No. SocialCalcs gives you a hosted microsite at socialcalcs.com/yourname. You can share that link anywhere — Instagram, LinkedIn, email, or your own website.',
+    q: 'Do my clients need to download anything?',
+    a: 'Never. They open your link, run the numbers, and get their report — all in the browser, mostly on mobile.',
   },
   {
-    question: 'How does the lead capture work?',
-    answer: "When a visitor uses your calculator and clicks to get their PDF report, they enter their name and email. That contact immediately appears in your lead dashboard and gets emailed to you.",
+    q: 'How long does setup take?',
+    a: 'Most pros are live in an afternoon. Add your branding, pick your calculators, drop the link in your bio.',
   },
   {
-    question: 'Can I cancel at any time?',
-    answer: 'Yes. No contracts, no cancellation fees. You can downgrade to the free plan or cancel anytime from your dashboard.',
+    q: 'Where do my leads go?',
+    a: 'Straight to your dashboard and inbox, with the exact numbers each person ran. Export to your CRM on Pro and up.',
   },
   {
-    question: 'What calculators are included?',
-    answer: 'Mortgage payment, mortgage affordability, stress test, land transfer tax, and more. We add new calculators regularly. All calculator types are included on Pro and Business plans.',
-  },
-  {
-    question: 'Is there a free trial?',
-    answer: "The free plan lets you explore the product with no time limit. When you're ready for unlimited leads and full features, upgrade to Pro.",
+    q: 'Can I cancel anytime?',
+    a: 'Yes. No contracts, no lock-in. Downgrade to free whenever you want and keep your bio site.',
   },
 ]
 
-export function Faq() {
-  const [open, setOpen] = useState<number | null>(null)
-
+export function FAQ() {
   return (
-    <div className="max-w-2xl mx-auto">
-      <h2 className="text-2xl font-extrabold text-gray-900 text-center mb-8">
-        Frequently asked questions
-      </h2>
-      <div className="space-y-3">
-        {faqs.map((faq, i) => (
-          <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
-            <button
-              className="w-full text-left px-6 py-4 flex justify-between items-center font-medium text-gray-900 hover:bg-gray-50 transition-colors"
-              onClick={() => setOpen(open === i ? null : i)}
-              aria-expanded={open === i}
+    <section style={{ padding: '24px 32px 96px' }}>
+      <div style={{ maxWidth: 760, margin: '0 auto' }}>
+        <h2
+          style={{
+            fontFamily: 'var(--font-roboto), serif',
+            fontWeight: 700,
+            fontSize: 'clamp(26px,3vw,36px)',
+            letterSpacing: '-0.02em',
+            margin: '0 0 28px',
+            textAlign: 'center',
+          }}
+        >
+          Questions, answered
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {faqs.map(({ q, a }) => (
+            <div
+              key={q}
+              style={{
+                background: 'var(--card)',
+                border: '1px solid var(--line)',
+                borderRadius: 'var(--r)',
+                padding: '22px 24px',
+              }}
             >
-              {faq.question}
-              <span aria-hidden="true" className={`ml-4 text-gray-400 transition-transform ${open === i ? 'rotate-180' : ''}`}>
-                ↓
-              </span>
-            </button>
-            {open === i && (
-              <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
-                {faq.answer}
-              </div>
-            )}
-          </div>
-        ))}
+              <div style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 600, fontSize: 16 }}>{q}</div>
+              <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', margin: '8px 0 0' }}>{a}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

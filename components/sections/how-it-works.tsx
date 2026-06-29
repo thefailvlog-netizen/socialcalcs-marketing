@@ -1,36 +1,66 @@
-interface Step {
-  number: string
-  title: string
-  description: string
-}
+const steps = [
+  {
+    num: '01',
+    title: 'Build your page',
+    body: 'Add your name, license, contact, links, and the calculators you want — fully branded to you.',
+  },
+  {
+    num: '02',
+    title: 'Share one link',
+    body: "Drop it in your Instagram bio, LinkedIn, listings, or email signature. That's the whole install.",
+  },
+  {
+    num: '03',
+    title: 'Turn taps into leads',
+    body: 'Visitors run a calculator, get a branded PDF, and their contact details land in your inbox.',
+  },
+]
 
-interface HowItWorksProps {
-  steps: Step[]
-}
-
-export function HowItWorks({ steps }: HowItWorksProps) {
+export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-            How it works
-          </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Three steps from sign-up to your first lead.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <div key={step.number} className="text-center">
-              <div className="w-14 h-14 rounded-full bg-blue-600 text-white font-bold text-xl flex items-center justify-center mx-auto mb-5">
-                {step.number}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-              <p className="text-gray-500 leading-relaxed">{step.description}</p>
+    <section
+      style={{
+        padding: '62px 32px',
+        background: 'var(--card)',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))',
+          gap: 28,
+        }}
+      >
+        {steps.map(({ num, title, body }) => (
+          <div key={num}>
+            <div
+              style={{
+                fontFamily: 'var(--font-space-grotesk), sans-serif',
+                fontWeight: 700,
+                fontSize: 38,
+                color: 'var(--accent)',
+                lineHeight: 1,
+              }}
+            >
+              {num}
             </div>
-          ))}
-        </div>
+            <h3
+              style={{
+                fontFamily: 'var(--font-roboto), serif',
+                fontWeight: 600,
+                fontSize: 20,
+                margin: '12px 0 6px',
+              }}
+            >
+              {title}
+            </h3>
+            <p style={{ fontSize: 15, color: 'var(--ink-soft)', margin: 0 }}>{body}</p>
+          </div>
+        ))}
       </div>
     </section>
   )

@@ -7,44 +7,65 @@ interface BillingToggleProps {
 
 export function BillingToggle({ annual, onChange }: BillingToggleProps) {
   return (
-    <div className="flex items-center gap-3 justify-center">
+    <div
+      style={{
+        display: 'inline-flex',
+        position: 'relative',
+        background: 'var(--card)',
+        border: '1px solid var(--line)',
+        borderRadius: 999,
+        padding: 4,
+      }}
+    >
+      {/* Sliding pill */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 4,
+          left: 4,
+          width: 'calc(50% - 4px)',
+          height: 'calc(100% - 8px)',
+          borderRadius: 999,
+          background: 'var(--ink)',
+          transition: 'transform 0.22s ease',
+          transform: annual ? 'translateX(100%)' : 'translateX(0)',
+        }}
+      />
       <button
-        type="button"
-        className={`text-sm font-medium transition-colors ${!annual ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
         onClick={() => onChange(false)}
-        aria-pressed={!annual}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          border: 'none',
+          background: 'transparent',
+          cursor: 'pointer',
+          fontFamily: 'inherit',
+          fontWeight: 600,
+          fontSize: 14,
+          padding: '9px 22px',
+          color: annual ? 'var(--ink-soft)' : '#fff',
+          transition: 'color 0.22s ease',
+        }}
       >
         Monthly
       </button>
-
       <button
-        type="button"
-        role="switch"
-        aria-checked={annual}
-        onClick={() => onChange(!annual)}
-        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 ${
-          annual ? 'bg-blue-600' : 'bg-gray-200'
-        }`}
-        aria-label="Toggle annual billing"
-      >
-        <span
-          aria-hidden="true"
-          className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${
-            annual ? 'translate-x-5' : 'translate-x-0'
-          }`}
-        />
-      </button>
-
-      <button
-        type="button"
-        className={`text-sm font-medium transition-colors ${annual ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
         onClick={() => onChange(true)}
-        aria-pressed={annual}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          border: 'none',
+          background: 'transparent',
+          cursor: 'pointer',
+          fontFamily: 'inherit',
+          fontWeight: 600,
+          fontSize: 14,
+          padding: '9px 22px',
+          color: annual ? '#fff' : 'var(--ink-soft)',
+          transition: 'color 0.22s ease',
+        }}
       >
-        Annual{' '}
-        <span className={`text-xs font-semibold ml-1 ${annual ? 'text-green-600' : 'text-green-500'}`}>
-          Save 20%
-        </span>
+        Annual <span style={{ color: 'var(--accent)' }}>−20%</span>
       </button>
     </div>
   )
