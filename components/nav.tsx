@@ -1,83 +1,177 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { useState, useEffect, useRef } from 'react'
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.socialcalcs.com'
 
 export function Nav() {
   const [open, setOpen] = useState(false)
-  const navRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    if (!open) return
-    function handleClick(e: MouseEvent) {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [open])
 
   return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        background: 'rgba(247,247,244,0.82)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid var(--line)',
+        padding: '16px 32px',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 1200, margin: '0 auto' }}>
         {/* Logo */}
-        <Link href="/" className="font-bold text-xl text-blue-600 tracking-tight">
-          SocialCalcs
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <div
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 9,
+              background: 'var(--ink)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 17,
+              fontFamily: 'var(--font-roboto), serif',
+              fontWeight: 900,
+              fontStyle: 'italic',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            <span style={{ color: '#fff' }}>S</span>
+            <span style={{ color: 'var(--accent)' }}>C</span>
+          </div>
+          <span
+            style={{
+              fontFamily: 'var(--font-roboto), serif',
+              fontWeight: 700,
+              fontSize: 16,
+              color: 'var(--ink)',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Social<span style={{ color: 'var(--accent)' }}>Calcs</span>
+          </span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-          <Link href="/#how-it-works" className="hover:text-blue-600 transition-colors">How it works</Link>
-          <Link href="/#features" className="hover:text-blue-600 transition-colors">Features</Link>
-          <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
-        </div>
+        {/* Center links — desktop */}
+        <nav className="hidden md:flex" style={{ gap: 28, alignItems: 'center' }}>
+          {[
+            { label: 'Bio site', href: '/#bio' },
+            { label: 'Tools', href: '/#tools' },
+            { label: 'Pricing', href: '/pricing' },
+          ].map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              style={{ fontSize: 14.5, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
 
-        {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right CTAs — desktop */}
+        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 12 }}>
           <a
-            href={`${APP_URL}/login`}
-            className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2"
+            href="https://app.socialcalcs.com/login"
+            style={{ fontSize: 14.5, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
           >
             Log in
           </a>
           <a
-            href={`${APP_URL}/signup`}
-            className="text-sm font-semibold bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            href="https://app.socialcalcs.com/signup"
+            style={{
+              fontSize: 14.5,
+              fontWeight: 600,
+              color: '#fff',
+              background: 'var(--ink)',
+              padding: '9px 18px',
+              borderRadius: 'var(--r)',
+              textDecoration: 'none',
+              transition: 'background 0.18s ease',
+            }}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.background = 'var(--accent)')}
+            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.background = 'var(--ink)')}
           >
-            Get Started
+            Get started
           </a>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Hamburger — mobile */}
         <button
-          className="md:hidden p-2 text-gray-600"
+          className="flex md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: 'var(--ink)' }}
         >
-          <span className="block w-5 h-0.5 bg-current mb-1" />
-          <span className="block w-5 h-0.5 bg-current mb-1" />
-          <span className="block w-5 h-0.5 bg-current" />
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            {open ? (
+              <>
+                <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="18" y1="4" x2="4" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="3" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="3" y1="17" x2="19" y2="17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-4">
-          <Link href="/#how-it-works" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>How it works</Link>
-          <Link href="/#features" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Features</Link>
-          <Link href="/pricing" className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Pricing</Link>
-          <hr className="border-gray-100" />
-          <a href={`${APP_URL}/login`} className="text-sm font-medium text-gray-600" onClick={() => setOpen(false)}>Log in</a>
-          <a href={`${APP_URL}/signup`} className="text-sm font-semibold bg-blue-600 text-white px-4 py-2 rounded-lg text-center" onClick={() => setOpen(false)}>
-            Get Started
-          </a>
+        <div
+          style={{
+            borderTop: '1px solid var(--line)',
+            marginTop: 12,
+            paddingTop: 16,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 14,
+          }}
+        >
+          {[
+            { label: 'Bio site', href: '/#bio' },
+            { label: 'Tools', href: '/#tools' },
+            { label: 'Pricing', href: '/pricing' },
+          ].map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              onClick={() => setOpen(false)}
+              style={{ fontSize: 15, fontWeight: 500, color: 'var(--ink)', textDecoration: 'none' }}
+            >
+              {label}
+            </Link>
+          ))}
+          <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+            <a
+              href="https://app.socialcalcs.com/login"
+              style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
+            >
+              Log in
+            </a>
+            <a
+              href="https://app.socialcalcs.com/signup"
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: '#fff',
+                background: 'var(--ink)',
+                padding: '8px 16px',
+                borderRadius: 'var(--r)',
+                textDecoration: 'none',
+              }}
+            >
+              Get started
+            </a>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }
