@@ -65,6 +65,36 @@ export function BioExamples() {
             link — fully customizable to match your brand. Pick your colors, reorder your links,
             and embed live calculators anywhere on the page.
           </p>
+          <a
+            href="https://app.socialcalcs.com/mortgageman"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              marginTop: 24,
+              padding: '11px 20px',
+              background: 'var(--card)',
+              border: '1px solid var(--line)',
+              borderRadius: 'var(--r)',
+              fontSize: 14,
+              fontWeight: 600,
+              color: 'var(--ink)',
+              textDecoration: 'none',
+            }}
+          >
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                background: 'var(--accent)',
+                flexShrink: 0,
+              }}
+            />
+            See a live example →
+          </a>
         </div>
 
         <div
