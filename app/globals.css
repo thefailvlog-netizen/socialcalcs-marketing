@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #f7f7f4;
+  --ink: #15171c;
+  --ink-soft: #5d626d;
+  --line: #e6e6e0;
+  --card: #ffffff;
+  --dark: #101216;
+  --accent: #10A37F;
+  --r: 14px;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -9,4 +20,15 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }
