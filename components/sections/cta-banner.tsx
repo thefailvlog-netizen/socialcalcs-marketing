@@ -1,4 +1,4 @@
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.socialcalcs.com'
+const APP_URL = 'https://app.socialcalcs.com'
 
 export function CtaBanner() {
   return (

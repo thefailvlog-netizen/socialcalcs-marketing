@@ -74,13 +74,13 @@ export function Nav() {
         {/* Right CTAs — desktop */}
         <div className="hidden md:flex" style={{ alignItems: 'center', gap: 12 }}>
           <a
-            href="https://app.socialcalcs.com/login"
+            href="https://app.socialcalcs.com"
             style={{ fontSize: 14.5, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
           >
             Log in
           </a>
           <a
-            href="https://app.socialcalcs.com/signup"
+            href="https://app.socialcalcs.com"
             style={{
               fontSize: 14.5,
               fontWeight: 600,
@@ -150,13 +150,13 @@ export function Nav() {
           ))}
           <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
             <a
-              href="https://app.socialcalcs.com/login"
+              href="https://app.socialcalcs.com"
               style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
             >
               Log in
             </a>
             <a
-              href="https://app.socialcalcs.com/signup"
+              href="https://app.socialcalcs.com"
               style={{
                 fontSize: 14,
                 fontWeight: 600,
