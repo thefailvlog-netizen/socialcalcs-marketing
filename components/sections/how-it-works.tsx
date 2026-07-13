@@ -1,18 +1,21 @@
 const steps = [
   {
     num: '01',
-    title: 'Build your page',
-    body: 'Add your name, license, contact, links, and the calculators you want — fully branded to you.',
+    title: 'Build your page with AI',
+    body: 'Answer a few questions and AI assembles your bio site — your name, license, colors, calculators, and links — in minutes.',
+    cta: { label: 'See a real one →', href: 'https://app.socialcalcs.com/mortgageman' },
   },
   {
     num: '02',
     title: 'Share one link',
     body: "Drop it in your Instagram bio, LinkedIn, listings, or email signature. That's the whole install.",
+    cta: null,
   },
   {
     num: '03',
     title: 'Turn taps into leads',
     body: 'Visitors run a calculator, get a branded PDF, and their contact details land in your inbox.',
+    cta: null,
   },
 ]
 
@@ -35,7 +38,7 @@ export function HowItWorks() {
           gap: 28,
         }}
       >
-        {steps.map(({ num, title, body }) => (
+        {steps.map(({ num, title, body, cta }) => (
           <div key={num}>
             <div
               style={{
@@ -59,6 +62,26 @@ export function HowItWorks() {
               {title}
             </h3>
             <p style={{ fontSize: 15, color: 'var(--ink-soft)', margin: 0 }}>{body}</p>
+            {cta && (
+              <a
+                href={cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  marginTop: 14,
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: 'var(--accent)',
+                  textDecoration: 'none',
+                }}
+              >
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block', flexShrink: 0 }} />
+                {cta.label}
+              </a>
+            )}
           </div>
         ))}
       </div>

@@ -24,6 +24,7 @@ const hankenGrotesk = Hanken_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://socialcalcs.com'),
   title: 'SocialCalcs — The bio link for financial pros',
   description:
     'SocialCalcs gives mortgage brokers and real estate agents a branded mini bio site with financial calculators. Turn followers into leads.',

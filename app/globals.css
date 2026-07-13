@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f7f7f4;
-  --ink: #15171c;
-  --ink-soft: #5d626d;
-  --line: #e6e6e0;
-  --card: #ffffff;
-  --dark: #101216;
-  --accent: #10A37F;
+  --bg: #ffffff;
+  --ink: #0f1117;
+  --ink-soft: #5a6278;
+  --line: #e8eaf0;
+  --card: #f8f9fc;
+  --dark: #0d0f18;
+  --accent: #4F46E5;
+  --accent-soft: rgba(79,70,229,0.10);
   --r: 14px;
 }
 
@@ -34,11 +35,11 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16,163,127,0.0), 0 0 0 0 rgba(16,163,127,0.0); }
-  50% { box-shadow: 0 0 14px 2px rgba(16,163,127,0.22), 0 0 0 4px rgba(16,163,127,0.08); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79,70,229,0.0), 0 0 0 0 rgba(79,70,229,0.0); }
+  50% { box-shadow: 0 0 14px 2px rgba(79,70,229,0.22), 0 0 0 4px rgba(79,70,229,0.08); }
 }
 
 @keyframes dot-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16,163,127,0.6); }
-  50% { box-shadow: 0 0 0 5px rgba(16,163,127,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79,70,229,0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(79,70,229,0); }
 }

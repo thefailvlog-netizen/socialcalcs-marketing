@@ -12,7 +12,7 @@ export default function OGImage() {
         style={{
           width: '1200px',
           height: '630px',
-          background: '#15171c',
+          background: '#0d0f18',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -22,7 +22,6 @@ export default function OGImage() {
           overflow: 'hidden',
         }}
       >
-        {/* Subtle accent glow */}
         <div
           style={{
             position: 'absolute',
@@ -31,12 +30,10 @@ export default function OGImage() {
             transform: 'translateX(-50%)',
             width: '700px',
             height: '400px',
-            background: 'radial-gradient(ellipse at center, rgba(16,163,127,0.18) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(79,70,229,0.20) 0%, transparent 70%)',
             display: 'flex',
           }}
         />
-
-        {/* Logo mark */}
         <div
           style={{
             width: '72px',
@@ -54,10 +51,8 @@ export default function OGImage() {
           }}
         >
           <span style={{ color: '#ffffff' }}>S</span>
-          <span style={{ color: '#10A37F' }}>C</span>
+          <span style={{ color: '#4F46E5' }}>C</span>
         </div>
-
-        {/* Wordmark */}
         <div
           style={{
             fontSize: '56px',
@@ -69,10 +64,8 @@ export default function OGImage() {
             display: 'flex',
           }}
         >
-          Social<span style={{ color: '#10A37F' }}>Calcs</span>
+          Social<span style={{ color: '#4F46E5' }}>Calcs</span>
         </div>
-
-        {/* Tagline */}
         <div
           style={{
             fontSize: '22px',
@@ -85,8 +78,6 @@ export default function OGImage() {
         >
           The bio link for mortgage brokers and real estate agents.
         </div>
-
-        {/* Bottom accent pill */}
         <div
           style={{
             position: 'absolute',
@@ -94,22 +85,14 @@ export default function OGImage() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(16,163,127,0.15)',
-            border: '1px solid rgba(16,163,127,0.3)',
+            background: 'rgba(79,70,229,0.15)',
+            border: '1px solid rgba(79,70,229,0.3)',
             borderRadius: '999px',
             padding: '8px 20px',
           }}
         >
-          <div
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              background: '#10A37F',
-              display: 'flex',
-            }}
-          />
-          <span style={{ fontSize: '15px', fontWeight: 600, color: '#10A37F', display: 'flex' }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4F46E5', display: 'flex' }} />
+          <span style={{ fontSize: '15px', fontWeight: 600, color: '#4F46E5', display: 'flex' }}>
             socialcalcs.com
           </span>
         </div>

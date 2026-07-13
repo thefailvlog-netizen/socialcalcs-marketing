@@ -12,7 +12,7 @@ export function Nav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(247,247,244,0.82)',
+        background: 'rgba(255,255,255,0.88)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--line)',
         padding: '16px 32px',
@@ -69,6 +69,23 @@ export function Nav() {
               {label}
             </Link>
           ))}
+          <a
+            href="https://app.socialcalcs.com/mortgageman"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: 14.5,
+              fontWeight: 600,
+              color: 'var(--accent)',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 5,
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
+            Live demo
+          </a>
         </nav>
 
         {/* Right CTAs — desktop */}
@@ -85,14 +102,11 @@ export function Nav() {
               fontSize: 14.5,
               fontWeight: 600,
               color: '#fff',
-              background: 'var(--ink)',
+              background: 'var(--accent)',
               padding: '9px 18px',
               borderRadius: 'var(--r)',
               textDecoration: 'none',
-              transition: 'background 0.18s ease',
             }}
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.background = 'var(--accent)')}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.background = 'var(--ink)')}
           >
             Get started
           </a>
@@ -148,6 +162,14 @@ export function Nav() {
               {label}
             </Link>
           ))}
+          <a
+            href="https://app.socialcalcs.com/mortgageman"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: 15, fontWeight: 600, color: 'var(--accent)', textDecoration: 'none' }}
+          >
+            Live demo →
+          </a>
           <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
             <a
               href="https://app.socialcalcs.com"
@@ -161,7 +183,7 @@ export function Nav() {
                 fontSize: 14,
                 fontWeight: 600,
                 color: '#fff',
-                background: 'var(--ink)',
+                background: 'var(--accent)',
                 padding: '8px 16px',
                 borderRadius: 'var(--r)',
                 textDecoration: 'none',
