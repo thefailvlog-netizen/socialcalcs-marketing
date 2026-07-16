@@ -1,12 +1,19 @@
-import { AvatarSarah, AvatarMarcus, AvatarPriya } from '@/components/avatars'
+import { Avatar, type PersonId } from '@/components/avatars'
 
-const phones = [
+const phones: {
+  background: string
+  primaryText: string
+  person: PersonId
+  name: string
+  role: string
+  links: { label: string; primary?: boolean; glyph?: string }[]
+}[] = [
   {
     background: '#2952CC',
     primaryText: '#2952CC',
-    Avatar: AvatarSarah,
-    name: 'Sarah Jones',
-    role: 'Mortgage Broker · #M12345',
+    person: 'denise',
+    name: 'Denise Carter',
+    role: 'Mortgage Broker · #M88214',
     links: [
       { label: 'Mortgage Payment Calc', primary: true },
       { label: 'Mortgage Penalty Calc', glyph: '•' },
@@ -16,7 +23,7 @@ const phones = [
   {
     background: 'linear-gradient(160deg,#5B6CF5,#8A5CF0)',
     primaryText: '#6E4FE0',
-    Avatar: AvatarMarcus,
+    person: 'marcus',
     name: 'Marcus Lee',
     role: 'Real Estate Agent · #RE8842',
     links: [
@@ -28,8 +35,8 @@ const phones = [
   {
     background: '#0E7C86',
     primaryText: '#0E7C86',
-    Avatar: AvatarPriya,
-    name: 'Priya Shah',
+    person: 'arjun',
+    name: 'Arjun Shah',
     role: 'Financial Advisor · #FA3310',
     links: [
       { label: 'Compound Interest Calc', primary: true },
@@ -126,7 +133,7 @@ export function BioExamples() {
                   margin: '0 auto',
                 }}
               >
-                <phone.Avatar />
+                <Avatar person={phone.person} size={60} />
               </div>
               <div style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 600, fontSize: 17, marginTop: 10 }}>
                 {phone.name}

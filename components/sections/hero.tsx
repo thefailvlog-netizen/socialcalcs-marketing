@@ -1,4 +1,4 @@
-import { AvatarSarah } from '@/components/avatars'
+import { Avatar } from '@/components/avatars'
 
 const APP_URL = 'https://app.socialcalcs.com'
 
@@ -146,7 +146,7 @@ export function Hero() {
                 margin: '0 auto',
               }}
             >
-              <AvatarSarah />
+              <Avatar person="sarah" size={68} />
             </div>
             <div style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 600, fontSize: 19, marginTop: 12 }}>
               Sarah Jones
