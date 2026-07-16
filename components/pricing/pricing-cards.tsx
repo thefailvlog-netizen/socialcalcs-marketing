@@ -96,7 +96,7 @@ export function PricingCards({ annual }: PricingCardsProps) {
             '1 mini bio site',
             'Up to 3 customizable calculators',
             'Unlimited leads',
-            'PDF reports (SocialCalcs badge)',
+            'PDF reports',
             'Email alerts for new leads',
           ]}
         />
@@ -165,7 +165,6 @@ export function PricingCards({ annual }: PricingCardsProps) {
             'Up to 3 bio sites',
             'Up to 10 different calculators',
             'Embed your calculators anywhere',
-            'Your branding on PDFs (no badge)',
             'AI-enabled builder — build & edit with your favourite AI tool',
           ]}
         />
