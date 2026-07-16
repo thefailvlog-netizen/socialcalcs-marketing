@@ -1,4 +1,5 @@
 import { Avatar, type PersonId } from '@/components/avatars'
+import { DEMO_URL } from '@/lib/links'
 
 const phones: {
   background: string
@@ -96,6 +97,39 @@ export function BioExamples() {
             link — fully customizable to match your brand. Pick your colors, reorder your links,
             and embed live calculators anywhere on the page.
           </p>
+          <a
+            href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              marginTop: 24,
+              minHeight: 44,
+              padding: '12px 22px',
+              background: 'var(--bg)',
+              border: '1px solid rgba(41,82,204,0.35)',
+              borderRadius: 'var(--r)',
+              fontSize: 14.5,
+              fontWeight: 600,
+              color: 'var(--ink)',
+              textDecoration: 'none',
+              animation: 'pulse-glow 2.8s ease-in-out infinite',
+            }}
+          >
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                background: 'var(--accent)',
+                flexShrink: 0,
+                animation: 'dot-pulse 2.8s ease-in-out infinite',
+              }}
+            />
+            See a real one — Mike&apos;s live page →
+          </a>
         </div>
 
         <div

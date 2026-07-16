@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { APP_URL, DEMO_URL } from '@/lib/links'
 
 const NAV_LINKS = [
   { label: 'Bio site', href: '/#bio' },
@@ -10,7 +11,14 @@ const NAV_LINKS = [
   { label: 'Pricing', href: '/pricing' },
 ]
 
-const APP_URL = 'https://app.socialcalcs.com'
+const demoDot = {
+  width: 6,
+  height: 6,
+  borderRadius: '50%',
+  background: 'var(--accent)',
+  flexShrink: 0,
+  animation: 'dot-pulse 2.8s ease-in-out infinite',
+} as const
 
 export function Nav() {
   const [open, setOpen] = useState(false)
@@ -75,6 +83,23 @@ export function Nav() {
               {label}
             </Link>
           ))}
+          <a
+            href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontSize: 14.5,
+              fontWeight: 600,
+              color: 'var(--accent)',
+              textDecoration: 'none',
+            }}
+          >
+            <span style={demoDot} />
+            Live demo
+          </a>
         </nav>
 
         {/* Right CTAs — desktop */}
@@ -170,6 +195,25 @@ export function Nav() {
               {label}
             </Link>
           ))}
+          <a
+            href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              minHeight: 44,
+              fontSize: 16,
+              fontWeight: 600,
+              color: 'var(--accent)',
+              textDecoration: 'none',
+            }}
+          >
+            <span style={demoDot} />
+            Live demo
+          </a>
           <div style={{ display: 'flex', gap: 10, marginTop: 4, alignItems: 'center' }}>
             <a
               href={`${APP_URL}/login`}

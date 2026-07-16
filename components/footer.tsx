@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { DEMO_URL } from '@/lib/links'
 
 export function Footer() {
   return (
@@ -46,6 +47,31 @@ export function Footer() {
                 {label}
               </Link>
             ))}
+            <a
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 7,
+                fontSize: 14.5,
+                color: '#fff',
+                fontWeight: 600,
+                textDecoration: 'none',
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: '50%',
+                  background: 'var(--accent)',
+                  flexShrink: 0,
+                }}
+              />
+              Live demo
+            </a>
           </div>
         </div>
 

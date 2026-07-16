@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { DEMO_URL } from '@/lib/links'
 
 type Device = 'desktop' | 'tablet' | 'mobile'
 
@@ -120,9 +121,24 @@ export function EmbedAnywhere() {
               <span style={{ color: '#e6c07b' }}>&quot;app.socialcalcs.com/embed/…&quot;</span>
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>&gt;&lt;/iframe&gt;</span>
             </div>
-            <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', margin: '14px 0 0' }}>
-              One line of code. No plugins, no developer.
-            </p>
+            <a
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 7,
+                marginTop: 14,
+                minHeight: 44,
+                fontSize: 14.5,
+                fontWeight: 600,
+                color: 'var(--accent)',
+                textDecoration: 'none',
+              }}
+            >
+              Open a live example in a new tab <span style={{ fontSize: 16 }} aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
 
