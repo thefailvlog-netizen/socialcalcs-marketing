@@ -9,7 +9,7 @@ export function LeadsSection() {
   return (
     <section
       style={{
-        padding: '88px 32px',
+        padding: '88px clamp(20px, 5vw, 32px)',
         background: 'var(--sand)',
         borderTop: '1px solid var(--line)',
         borderBottom: '1px solid var(--line)',
@@ -20,7 +20,7 @@ export function LeadsSection() {
           maxWidth: 1200,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(360px,1fr))',
+          gridTemplateColumns: 'repeat(auto-fit,minmax(min(360px, 100%),1fr))',
           gap: 56,
           alignItems: 'center',
         }}

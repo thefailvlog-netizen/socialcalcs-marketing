@@ -12,7 +12,7 @@ export function LegalPage({
   children: ReactNode
 }) {
   return (
-    <div style={{ padding: '72px 32px 96px' }}>
+    <div style={{ padding: '72px clamp(20px, 5vw, 32px) 96px' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <h1
           style={{

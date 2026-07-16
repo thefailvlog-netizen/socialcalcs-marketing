@@ -28,7 +28,7 @@ const personas = [
 
 export function WhoItsFor() {
   return (
-    <section style={{ padding: '80px 32px' }}>
+    <section style={{ padding: '80px clamp(20px, 5vw, 32px)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ maxWidth: 620 }}>
           <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--accent)' }}>
@@ -51,7 +51,7 @@ export function WhoItsFor() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
+            gridTemplateColumns: 'repeat(auto-fit,minmax(min(300px, 100%),1fr))',
             gap: 20,
             marginTop: 46,
           }}

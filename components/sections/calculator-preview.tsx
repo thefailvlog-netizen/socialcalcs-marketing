@@ -10,12 +10,12 @@ const calcTiles = [
 
 export function ToolsSection() {
   return (
-    <section id="tools" style={{ padding: '88px 32px', background: 'var(--dark)', color: '#fff' }}>
+    <section id="tools" style={{ padding: '88px clamp(20px, 5vw, 32px)', background: 'var(--dark)', color: '#fff' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(340px,1fr))',
+            gridTemplateColumns: 'repeat(auto-fit,minmax(min(340px, 100%),1fr))',
             gap: 56,
             alignItems: 'center',
           }}
@@ -95,7 +95,7 @@ export function ToolsSection() {
                 marginTop: 16,
                 padding: 14,
                 borderRadius: 10,
-                background: 'var(--bg)',
+                background: 'var(--card)',
                 display: 'flex',
                 alignItems: 'baseline',
                 justifyContent: 'space-between',
@@ -139,7 +139,7 @@ export function ToolsSection() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(230px,1fr))',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(min(230px, 100%),1fr))',
               gap: 14,
               marginTop: 18,
             }}

@@ -21,10 +21,10 @@ export function Nav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(241,242,244,0.82)',
+        background: 'rgba(255,255,255,0.82)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--line)',
-        padding: '16px 32px',
+        padding: '16px clamp(20px, 5vw, 32px)',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, maxWidth: 1200, margin: '0 auto' }}>
@@ -110,7 +110,18 @@ export function Nav() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: 'var(--ink)' }}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: 'var(--ink)',
+            // 44px keeps the tap target comfortable on a phone.
+            width: 44,
+            height: 44,
+            marginRight: -11,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             {open ? (
@@ -146,23 +157,53 @@ export function Nav() {
               key={label}
               href={href}
               onClick={() => setOpen(false)}
-              style={{ fontSize: 15, fontWeight: 500, color: 'var(--ink)', textDecoration: 'none' }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                minHeight: 44,
+                fontSize: 16,
+                fontWeight: 500,
+                color: 'var(--ink)',
+                textDecoration: 'none',
+              }}
             >
               {label}
             </Link>
           ))}
           <div style={{ display: 'flex', gap: 10, marginTop: 4, alignItems: 'center' }}>
-            <a href={`${APP_URL}/login`} style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink-soft)', textDecoration: 'none' }}>
+            <a
+              href={`${APP_URL}/login`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 44,
+                padding: '0 18px',
+                flex: 1,
+                fontSize: 15,
+                fontWeight: 600,
+                color: 'var(--ink)',
+                background: 'var(--card)',
+                border: '1px solid var(--line)',
+                borderRadius: 'var(--r)',
+                textDecoration: 'none',
+              }}
+            >
               Log in
             </a>
             <a
               href={`${APP_URL}/signup`}
               style={{
-                fontSize: 14,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 44,
+                padding: '0 18px',
+                flex: 1,
+                fontSize: 15,
                 fontWeight: 600,
                 color: '#fff',
                 background: 'var(--ink)',
-                padding: '8px 16px',
                 borderRadius: 'var(--r)',
                 textDecoration: 'none',
               }}

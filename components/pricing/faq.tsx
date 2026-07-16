@@ -21,7 +21,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section style={{ padding: '24px 32px 96px' }}>
+    <section style={{ padding: '24px clamp(20px, 5vw, 32px) 96px' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <h2
           style={{

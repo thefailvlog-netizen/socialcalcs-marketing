@@ -1,17 +1,17 @@
-'use client'
-
-import { useState } from 'react'
-import { BillingToggle } from '@/components/pricing/billing-toggle'
+import type { Metadata } from 'next'
 import { PricingCards } from '@/components/pricing/pricing-cards'
 import { FAQ } from '@/components/pricing/faq'
 
-export default function PricingPage() {
-  const [annual, setAnnual] = useState(false)
+export const metadata: Metadata = {
+  title: 'Pricing — SocialCalcs',
+  description: 'Start free and upgrade when your bio link starts booking clients. No contracts, cancel anytime.',
+}
 
+export default function PricingPage() {
   return (
     <>
       {/* Header */}
-      <section style={{ padding: '80px 32px 40px', textAlign: 'center' }}>
+      <section style={{ padding: '80px clamp(20px, 5vw, 32px) 40px', textAlign: 'center' }}>
         <div
           style={{
             fontSize: 13,
@@ -39,14 +39,11 @@ export default function PricingPage() {
           Start free and upgrade when your bio link starts booking clients. No contracts, cancel
           anytime.
         </p>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
-          <BillingToggle annual={annual} onChange={setAnnual} />
-        </div>
       </section>
 
       {/* Cards */}
-      <section style={{ padding: '24px 32px 80px' }}>
-        <PricingCards annual={annual} />
+      <section style={{ padding: '24px clamp(20px, 5vw, 32px) 80px' }}>
+        <PricingCards />
       </section>
 
       {/* FAQ */}

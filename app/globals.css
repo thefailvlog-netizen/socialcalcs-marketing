@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f1f2f4;
+  /* Page is pure white; --card and --sand carry the tonal steps. */
+  --bg: #ffffff;
   --ink: #16181d;
   --ink-soft: #5d626d;
-  --line: #e4e5e9;
-  --card: #ffffff;
-  --sand: #e7e9ee;
+  --line: #e6e8ec;
+  --card: #f7f8fa;
+  --sand: #eef0f4;
   --dark: #101216;
   --accent: #2952CC;
   --r: 14px;
@@ -21,6 +22,13 @@ html {
   html {
     scroll-behavior: auto;
   }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -28,11 +36,17 @@ body {
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* Guard against any single element forcing sideways scroll on phones. */
+  overflow-x: hidden;
 }
 
 ::selection {
   background: var(--accent);
   color: #fff;
+}
+
+img {
+  max-width: 100%;
 }
 
 @keyframes floaty {

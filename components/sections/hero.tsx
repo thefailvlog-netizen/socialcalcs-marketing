@@ -25,13 +25,13 @@ const softRowStyle = {
 
 export function Hero() {
   return (
-    <section style={{ padding: '80px 32px 70px' }}>
+    <section style={{ padding: '80px clamp(20px, 5vw, 32px) 70px' }}>
       <div
         style={{
           maxWidth: 1200,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(400px,1fr))',
+          gridTemplateColumns: 'repeat(auto-fit,minmax(min(400px, 100%),1fr))',
           gap: 56,
           alignItems: 'center',
         }}

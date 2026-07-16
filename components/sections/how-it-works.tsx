@@ -20,7 +20,7 @@ export function HowItWorks() {
   return (
     <section
       style={{
-        padding: '62px 32px',
+        padding: '62px clamp(20px, 5vw, 32px)',
         background: 'var(--card)',
         borderTop: '1px solid var(--line)',
         borderBottom: '1px solid var(--line)',
@@ -31,7 +31,7 @@ export function HowItWorks() {
           maxWidth: 1200,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))',
+          gridTemplateColumns: 'repeat(auto-fit,minmax(min(260px, 100%),1fr))',
           gap: 28,
         }}
       >

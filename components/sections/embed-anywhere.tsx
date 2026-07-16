@@ -48,7 +48,7 @@ export function EmbedAnywhere() {
   const [device, setDevice] = useState<Device>('desktop')
 
   return (
-    <section id="embed" style={{ padding: '88px 32px' }}>
+    <section id="embed" style={{ padding: '88px clamp(20px, 5vw, 32px)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ maxWidth: 660 }}>
           <div
@@ -88,7 +88,7 @@ export function EmbedAnywhere() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
+            gridTemplateColumns: 'repeat(auto-fit,minmax(min(300px, 100%),1fr))',
             gap: '18px 40px',
             marginTop: 26,
           }}
@@ -252,7 +252,7 @@ function EmbeddedCalculator() {
         >
           Mortgage Payment
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(140px,1fr))', gap: 12, marginTop: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(140px, 100%),1fr))', gap: 12, marginTop: 14 }}>
           {[
             { label: 'Home price', value: '$650,000' },
             { label: 'Down payment', value: '$130,000' },
@@ -270,7 +270,7 @@ function EmbeddedCalculator() {
             marginTop: 16,
             padding: 16,
             borderRadius: 10,
-            background: 'var(--bg)',
+            background: 'var(--card)',
             display: 'flex',
             alignItems: 'baseline',
             justifyContent: 'space-between',

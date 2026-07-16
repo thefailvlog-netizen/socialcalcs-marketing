@@ -60,7 +60,7 @@ export function BioExamples() {
     <section
       id="bio"
       style={{
-        padding: '80px 32px',
+        padding: '80px clamp(20px, 5vw, 32px)',
         background: 'var(--sand)',
         borderTop: '1px solid var(--line)',
         borderBottom: '1px solid var(--line)',
@@ -101,7 +101,7 @@ export function BioExamples() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))',
+            gridTemplateColumns: 'repeat(auto-fit,minmax(min(240px, 100%),1fr))',
             gap: 24,
             marginTop: 48,
             justifyItems: 'center',

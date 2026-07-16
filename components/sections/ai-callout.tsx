@@ -2,7 +2,7 @@ const APP_URL = 'https://app.socialcalcs.com'
 
 export function AiCallout() {
   return (
-    <section style={{ padding: '72px 32px' }}>
+    <section style={{ padding: '72px clamp(20px, 5vw, 32px)' }}>
       <div
         style={{
           maxWidth: 1100,
@@ -10,9 +10,9 @@ export function AiCallout() {
           background: 'var(--dark)',
           color: '#fff',
           borderRadius: 24,
-          padding: '48px 44px',
+          padding: 'clamp(32px, 5vw, 48px) clamp(22px, 4vw, 44px)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))',
+          gridTemplateColumns: 'repeat(auto-fit,minmax(min(320px, 100%),1fr))',
           gap: 44,
           alignItems: 'center',
         }}

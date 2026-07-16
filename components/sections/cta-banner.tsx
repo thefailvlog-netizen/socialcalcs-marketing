@@ -2,7 +2,7 @@ const APP_URL = 'https://app.socialcalcs.com'
 
 export function CtaBanner() {
   return (
-    <section style={{ padding: '96px 32px' }}>
+    <section style={{ padding: '96px clamp(20px, 5vw, 32px)' }}>
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <h2
           style={{
