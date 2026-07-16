@@ -143,6 +143,12 @@ export default function PrivacyPage() {
             <>
               <strong>Upstash</strong> — rate limiting and caching, to protect the Service from abuse.
             </>,
+            <>
+              <strong>Google Analytics</strong> — aggregated website usage measurement on our marketing
+              site. It sets cookies and receives your IP address, pages viewed, and general device
+              information. It is not used on customer bio sites, and we do not use it to identify you or
+              to build advertising profiles.
+            </>,
           ]}
         />
         <p>We may also disclose personal information where we reasonably believe it is necessary to:</p>
@@ -175,9 +181,26 @@ export default function PrivacyPage() {
       <Section n={8} heading="Cookies and similar technologies">
         <p>
           We use cookies and similar technologies that are necessary to operate the Service — keeping you signed in,
-          maintaining your session, remembering preferences, and protecting against abuse. We may use privacy-
-          respecting, aggregated analytics to understand usage. You can block or delete cookies in your browser, but
-          some features, including signing in, will not work without them.
+          maintaining your session, remembering preferences, and protecting against abuse. You can block or delete
+          cookies in your browser, but some features, including signing in, will not work without them.
+        </p>
+        <p>
+          On our marketing site we also use <strong>Google Analytics</strong> to measure aggregated traffic — which
+          pages people visit and how they arrive. It sets cookies and processes your IP address and device
+          information on Google&apos;s servers. We use it to understand what is working, not to identify individual
+          people or to serve advertising.
+        </p>
+        <p>
+          You can opt out of Google Analytics on every site you visit using Google&apos;s{' '}
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+          >
+            browser opt-out add-on
+          </a>
+          , or by blocking cookies in your browser. Analytics is not used on customer bio sites or calculators.
         </p>
       </Section>
 

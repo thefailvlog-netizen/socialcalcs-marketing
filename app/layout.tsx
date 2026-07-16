@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 import { Roboto, Space_Grotesk, Hanken_Grotesk } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
+
+// Set NEXT_PUBLIC_GA_ID in Vercel to switch analytics on. Left unset (e.g. in
+// local dev) nothing loads and the CSP in next.config.ts stays locked down.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -50,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16">{children}</main>
         <Footer />
       </body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   )
 }
