@@ -27,7 +27,7 @@ export function ToolsSection() {
             </div>
             <h2
               style={{
-                fontFamily: 'var(--font-roboto), serif',
+                fontFamily: 'var(--font-roboto), sans-serif',
                 fontWeight: 700,
                 fontSize: 'clamp(30px,3.6vw,46px)',
                 lineHeight: 1.04,

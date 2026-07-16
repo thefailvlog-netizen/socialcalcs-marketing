@@ -7,11 +7,11 @@ const faqs = [
   },
   {
     q: 'How long does setup take?',
-    a: 'Most pros are live in an afternoon. Add your branding, pick your calculators, drop the link in your bio.',
+    a: 'Minutes. Describe your practice and we build the page for you — then tweak the branding, calculators, and links to taste.',
   },
   {
-    q: 'Where do my leads go?',
-    a: 'Straight to your dashboard and inbox, with the exact numbers each person ran. Export to your CRM on Pro and up.',
+    q: 'Can I put a calculator on my own website?',
+    a: 'Yes. On Pro and up you can embed any calculator on your site, blog, or listing pages with one line of code — and it still captures leads.',
   },
   {
     q: 'Can I cancel anytime?',
@@ -25,7 +25,7 @@ export function FAQ() {
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <h2
           style={{
-            fontFamily: 'var(--font-roboto), serif',
+            fontFamily: 'var(--font-roboto), sans-serif',
             fontWeight: 700,
             fontSize: 'clamp(26px,3vw,36px)',
             letterSpacing: '-0.02em',

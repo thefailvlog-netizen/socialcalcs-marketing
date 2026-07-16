@@ -6,7 +6,7 @@ export function CtaBanner() {
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <h2
           style={{
-            fontFamily: 'var(--font-roboto), serif',
+            fontFamily: 'var(--font-roboto), sans-serif',
             fontWeight: 700,
             fontSize: 'clamp(34px,4.6vw,58px)',
             lineHeight: 1.0,
@@ -17,7 +17,8 @@ export function CtaBanner() {
           Your bio link could be your best salesperson.
         </h2>
         <p style={{ fontSize: 18, color: 'var(--ink-soft)', margin: '20px auto 0', maxWidth: 520 }}>
-          Build your page, embed your calculators, and start turning followers into clients today.
+          Describe your practice, let AI build your page, and start turning followers into clients
+          today.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', marginTop: 30 }}>
           <a

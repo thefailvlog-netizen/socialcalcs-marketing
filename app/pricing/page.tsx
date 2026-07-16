@@ -25,7 +25,7 @@ export default function PricingPage() {
         </div>
         <h1
           style={{
-            fontFamily: 'var(--font-roboto), serif',
+            fontFamily: 'var(--font-roboto), sans-serif',
             fontWeight: 700,
             fontSize: 'clamp(40px,5vw,68px)',
             lineHeight: 1.0,
@@ -33,12 +33,11 @@ export default function PricingPage() {
             margin: '14px 0 0',
           }}
         >
-          Simple pricing.
-          <br />
-          <span style={{ color: 'var(--accent)' }}>Serious leads.</span>
+          Pricing that <span style={{ color: 'var(--accent)' }}>pays for itself.</span>
         </h1>
         <p style={{ fontSize: 18, color: 'var(--ink-soft)', margin: '18px auto 0', maxWidth: 480 }}>
-          Start free. Upgrade the day your bio link earns its keep. No contracts, cancel anytime.
+          Start free and upgrade when your bio link starts booking clients. No contracts, cancel
+          anytime.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
           <BillingToggle annual={annual} onChange={setAnnual} />

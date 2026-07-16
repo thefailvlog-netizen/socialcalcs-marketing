@@ -28,14 +28,7 @@ const personas = [
 
 export function WhoItsFor() {
   return (
-    <section
-      style={{
-        padding: '80px 32px',
-        background: 'var(--card)',
-        borderTop: '1px solid var(--line)',
-        borderBottom: '1px solid var(--line)',
-      }}
-    >
+    <section style={{ padding: '80px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ maxWidth: 620 }}>
           <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--accent)' }}>
@@ -43,7 +36,7 @@ export function WhoItsFor() {
           </div>
           <h2
             style={{
-              fontFamily: 'var(--font-roboto), serif',
+              fontFamily: 'var(--font-roboto), sans-serif',
               fontWeight: 700,
               fontSize: 'clamp(30px,3.6vw,46px)',
               lineHeight: 1.04,
@@ -68,7 +61,7 @@ export function WhoItsFor() {
               key={title}
               style={{
                 position: 'relative',
-                background: 'var(--bg)',
+                background: 'var(--card)',
                 border: '1px solid var(--line)',
                 borderRadius: 'var(--r)',
                 padding: 28,
@@ -95,7 +88,7 @@ export function WhoItsFor() {
               )}
               <h3
                 style={{
-                  fontFamily: 'var(--font-roboto), serif',
+                  fontFamily: 'var(--font-roboto), sans-serif',
                   fontWeight: 600,
                   fontSize: 20,
                   margin: '0 0 16px',
@@ -113,7 +106,9 @@ export function WhoItsFor() {
               >
                 {bullets.map(b => (
                   <div key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                    <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    <span style={{ color: 'var(--accent)', fontWeight: 700 }} aria-hidden="true">
+                      ✓
+                    </span>
                     <span style={{ fontSize: 14.5, color: 'var(--ink-soft)' }}>{b}</span>
                   </div>
                 ))}

@@ -3,6 +3,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
+const NAV_LINKS = [
+  { label: 'Bio site', href: '/#bio' },
+  { label: 'Tools', href: '/#tools' },
+  { label: 'Embed', href: '/#embed' },
+  { label: 'Pricing', href: '/pricing' },
+]
+
+const APP_URL = 'https://app.socialcalcs.com'
+
 export function Nav() {
   const [open, setOpen] = useState(false)
 
@@ -12,42 +21,43 @@ export function Nav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(255,255,255,0.88)',
+        background: 'rgba(241,242,244,0.82)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--line)',
         padding: '16px 32px',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, maxWidth: 1200, margin: '0 auto' }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <div
+          <span
             style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               width: 32,
               height: 32,
               borderRadius: 9,
               background: 'var(--ink)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: 17,
-              fontFamily: 'var(--font-roboto), serif',
+              fontFamily: 'var(--font-roboto), sans-serif',
               fontWeight: 900,
               fontStyle: 'italic',
-              lineHeight: 1,
+              fontSize: 14,
+              letterSpacing: '-0.01em',
               flexShrink: 0,
             }}
           >
             <span style={{ color: '#fff' }}>S</span>
             <span style={{ color: 'var(--accent)' }}>C</span>
-          </div>
+          </span>
           <span
             style={{
-              fontFamily: 'var(--font-roboto), serif',
-              fontWeight: 700,
-              fontSize: 16,
+              fontFamily: 'var(--font-roboto), sans-serif',
+              fontWeight: 900,
+              fontStyle: 'italic',
+              letterSpacing: '-0.02em',
+              fontSize: 22,
               color: 'var(--ink)',
-              letterSpacing: '-0.01em',
             }}
           >
             Social<span style={{ color: 'var(--accent)' }}>Calcs</span>
@@ -56,11 +66,7 @@ export function Nav() {
 
         {/* Center links — desktop */}
         <nav className="hidden md:flex" style={{ gap: 28, alignItems: 'center' }}>
-          {[
-            { label: 'Bio site', href: '/#bio' },
-            { label: 'Tools', href: '/#tools' },
-            { label: 'Pricing', href: '/pricing' },
-          ].map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href }) => (
             <Link
               key={label}
               href={href}
@@ -69,44 +75,30 @@ export function Nav() {
               {label}
             </Link>
           ))}
-          <a
-            href="https://app.socialcalcs.com/mortgageman"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontSize: 14.5,
-              fontWeight: 600,
-              color: 'var(--accent)',
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 5,
-            }}
-          >
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
-            Live demo
-          </a>
         </nav>
 
         {/* Right CTAs — desktop */}
-        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 12 }}>
-          <a
-            href="https://app.socialcalcs.com"
-            style={{ fontSize: 14.5, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
-          >
+        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 14 }}>
+          <a href={`${APP_URL}/login`} style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--ink-soft)', textDecoration: 'none' }}>
             Log in
           </a>
           <a
-            href="https://app.socialcalcs.com"
+            href={`${APP_URL}/signup`}
             style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 7,
               fontSize: 14.5,
               fontWeight: 600,
               color: '#fff',
-              background: 'var(--accent)',
-              padding: '9px 18px',
+              background: 'var(--ink)',
+              padding: '11px 18px',
               borderRadius: 'var(--r)',
               textDecoration: 'none',
+              transition: 'background 0.18s ease',
             }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'var(--accent)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
           >
             Get started
           </a>
@@ -117,9 +109,10 @@ export function Nav() {
           className="flex md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: 'var(--ink)' }}
         >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             {open ? (
               <>
                 <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -148,11 +141,7 @@ export function Nav() {
             gap: 14,
           }}
         >
-          {[
-            { label: 'Bio site', href: '/#bio' },
-            { label: 'Tools', href: '/#tools' },
-            { label: 'Pricing', href: '/pricing' },
-          ].map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href }) => (
             <Link
               key={label}
               href={href}
@@ -162,28 +151,17 @@ export function Nav() {
               {label}
             </Link>
           ))}
-          <a
-            href="https://app.socialcalcs.com/mortgageman"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ fontSize: 15, fontWeight: 600, color: 'var(--accent)', textDecoration: 'none' }}
-          >
-            Live demo →
-          </a>
-          <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
-            <a
-              href="https://app.socialcalcs.com"
-              style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
-            >
+          <div style={{ display: 'flex', gap: 10, marginTop: 4, alignItems: 'center' }}>
+            <a href={`${APP_URL}/login`} style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink-soft)', textDecoration: 'none' }}>
               Log in
             </a>
             <a
-              href="https://app.socialcalcs.com"
+              href={`${APP_URL}/signup`}
               style={{
                 fontSize: 14,
                 fontWeight: 600,
                 color: '#fff',
-                background: 'var(--accent)',
+                background: 'var(--ink)',
                 padding: '8px 16px',
                 borderRadius: 'var(--r)',
                 textDecoration: 'none',
