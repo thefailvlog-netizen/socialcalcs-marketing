@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import { LegalPage, Section, Callout, List } from '@/components/legal/legal-page'
+import { LEGAL_ENTITY, BRAND } from '@/lib/company'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — SocialCalcs',
   description: 'The terms governing your use of SocialCalcs.',
 }
-
-const ENTITY = 'SocialCalcs Inc.'
 
 const linkStyle = { color: 'var(--accent)', fontWeight: 600 } as const
 
@@ -17,10 +16,12 @@ export default function TermsPage() {
       updated="July 16, 2026"
       intro={
         <>
-          These Terms of Service (the &ldquo;Terms&rdquo;) are a binding agreement between you and {ENTITY}{' '}
-          (&ldquo;SocialCalcs&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), an Ontario corporation. They govern your
-          access to and use of the SocialCalcs website, application, calculators, embeds, APIs, and related
-          services (together, the &ldquo;Service&rdquo;). Please read them carefully.
+          These Terms of Service (the &ldquo;Terms&rdquo;) are a binding agreement between you and{' '}
+          <strong>{LEGAL_ENTITY}</strong>, an Ontario corporation operating as {BRAND} (&ldquo;{BRAND}&rdquo;,
+          &ldquo;we&rdquo;, &ldquo;us&rdquo;). {BRAND} is a product of {LEGAL_ENTITY}; it is not a separate
+          company. These Terms govern your access to and use of the {BRAND} website, application,
+          calculators, embeds, APIs, and related services (together, the &ldquo;Service&rdquo;). Please read them
+          carefully.
         </>
       }
     >
@@ -190,7 +191,7 @@ export default function TermsPage() {
       <Section n={11} heading="Intellectual property">
         <p>
           The Service, including its software, calculator engines, report templates, design, and the SocialCalcs name
-          and marks, is owned by {ENTITY} and protected by intellectual property law. Subject to these Terms, we
+          and marks, is owned by {LEGAL_ENTITY} and protected by intellectual property law. Subject to these Terms, we
           grant you a limited, revocable, non-exclusive, non-transferable licence to use the Service for your own
           business purposes. All rights not expressly granted are reserved. Any feedback you give us may be used
           without restriction or compensation.
@@ -246,7 +247,7 @@ export default function TermsPage() {
 
       <Section n={14} heading="Indemnity">
         <p>
-          You will defend, indemnify, and hold harmless {ENTITY} and its directors, officers, employees, and agents
+          You will defend, indemnify, and hold harmless {LEGAL_ENTITY} and its directors, officers, employees, and agents
           from and against any claim, demand, action, proceeding, loss, liability, damage, fine, penalty, and expense
           (including reasonable legal fees) arising out of or relating to:
         </p>

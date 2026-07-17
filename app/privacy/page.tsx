@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import { LegalPage, Section, Callout, List } from '@/components/legal/legal-page'
+import { LEGAL_ENTITY, BRAND } from '@/lib/company'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — SocialCalcs',
   description: 'How SocialCalcs collects, uses, and protects personal information.',
 }
-
-const ENTITY = 'SocialCalcs Inc.'
 
 const linkStyle = { color: 'var(--accent)', fontWeight: 600 } as const
 
@@ -17,10 +16,12 @@ export default function PrivacyPage() {
       updated="July 16, 2026"
       intro={
         <>
-          {ENTITY} (&ldquo;SocialCalcs&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is an Ontario corporation. This
-          policy explains what personal information we collect, why we collect it, who we share it with, and the
-          choices you have. We handle personal information in accordance with Canada&apos;s Personal Information
-          Protection and Electronic Documents Act (PIPEDA) and other applicable privacy law.
+          {BRAND} is a product of <strong>{LEGAL_ENTITY}</strong> (&ldquo;{BRAND}&rdquo;, &ldquo;we&rdquo;,
+          &ldquo;us&rdquo;), an Ontario corporation. {LEGAL_ENTITY} is the organization responsible for the personal
+          information handled through {BRAND}. This policy explains what personal information we collect, why we
+          collect it, who we share it with, and the choices you have. We handle personal information in accordance
+          with Canada&apos;s Personal Information Protection and Electronic Documents Act (PIPEDA) and other
+          applicable privacy law.
         </>
       }
     >
@@ -275,7 +276,7 @@ export default function PrivacyPage() {
           </a>
           .
         </p>
-        <p style={{ fontSize: 14 }}>Privacy Officer, {ENTITY}, Ontario, Canada.</p>
+        <p style={{ fontSize: 14 }}>Privacy Officer, {LEGAL_ENTITY}, Ontario, Canada.</p>
       </Section>
     </LegalPage>
   )

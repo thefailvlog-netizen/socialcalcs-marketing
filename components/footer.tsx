@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { DEMO_URL } from '@/lib/links'
+import { LEGAL_ENTITY, BRAND } from '@/lib/company'
 
 export function Footer() {
   return (
@@ -104,7 +105,8 @@ export function Footer() {
           color: 'rgba(255,255,255,0.45)',
         }}
       >
-        © 2026 SocialCalcs. All rights reserved.
+        {/* The legal name already ends in a period — don't add another. */}
+        © 2026 {LEGAL_ENTITY} All rights reserved. {BRAND} is a product of {LEGAL_ENTITY}
       </div>
     </footer>
   )
