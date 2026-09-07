@@ -1,101 +1,78 @@
 import { Avatar, type PersonId } from '@/components/avatars'
+import { Eyebrow, h2Style } from '@/components/icons'
 import { DEMO_URL } from '@/lib/links'
 
-const phones: {
-  background: string
-  primaryText: string
+type Card = {
   person: PersonId
   name: string
   role: string
-  links: { label: string; primary?: boolean; glyph?: string }[]
-}[] = [
+  background: string
+  border?: string
+  color: string
+  subtle: string
+  primaryBg: string
+  primaryColor: string
+  rowBg: string
+  rowColor: string
+  ring: string
+  links: [string, string, string]
+}
+
+const cards: Card[] = [
   {
-    background: '#2952CC',
-    primaryText: '#2952CC',
     person: 'denise',
     name: 'Denise Carter',
     role: 'Mortgage Broker · #M88214',
-    links: [
-      { label: 'Mortgage Payment Calc', primary: true },
-      { label: 'Mortgage Penalty Calc', glyph: '•' },
-      { label: 'Book a consultation', glyph: '→' },
-    ],
+    background: 'var(--grad)',
+    color: '#fff',
+    subtle: 'rgba(255,255,255,0.85)',
+    primaryBg: '#fff',
+    primaryColor: 'var(--accent)',
+    rowBg: 'rgba(255,255,255,0.16)',
+    rowColor: '#fff',
+    ring: 'rgba(255,255,255,0.35)',
+    links: ['Mortgage Payment Calc', 'Mortgage Penalty Calc', 'Book a consultation'],
   },
   {
-    background: 'linear-gradient(160deg,#5B6CF5,#8A5CF0)',
-    primaryText: '#6E4FE0',
     person: 'marcus',
     name: 'Marcus Lee',
     role: 'Real Estate Agent · #RE8842',
-    links: [
-      { label: 'Affordability Calculator', primary: true },
-      { label: 'Browse my listings', glyph: '→' },
-      { label: 'Book a showing', glyph: '→' },
-    ],
+    background: 'var(--ink)',
+    color: '#fff',
+    subtle: 'rgba(255,255,255,0.7)',
+    primaryBg: 'var(--accent)',
+    primaryColor: '#fff',
+    rowBg: 'rgba(255,255,255,0.1)',
+    rowColor: '#fff',
+    ring: 'rgba(255,255,255,0.2)',
+    links: ['Affordability Calculator', 'Browse my listings', 'Book a showing'],
   },
   {
-    background: '#0E7C86',
-    primaryText: '#0E7C86',
     person: 'arjun',
     name: 'Arjun Shah',
     role: 'Financial Advisor · #FA3310',
-    links: [
-      { label: 'Compound Interest Calc', primary: true },
-      { label: 'Investment Scenario Calc', glyph: '•' },
-      { label: 'Book an intro call', glyph: '→' },
-    ],
+    background: '#fff',
+    border: '1px solid var(--line)',
+    color: 'var(--ink)',
+    subtle: 'var(--ink-soft)',
+    primaryBg: 'var(--ink)',
+    primaryColor: '#fff',
+    rowBg: 'var(--tint)',
+    rowColor: 'var(--ink)',
+    ring: 'var(--tint)',
+    links: ['Compound Interest Calc', 'Investment Scenario Calc', 'Book an intro call'],
   },
 ]
 
-const chipStyle = {
-  fontSize: 9.5,
-  fontWeight: 600,
-  color: '#fff',
-  border: '1px solid rgba(255,255,255,0.45)',
-  borderRadius: 999,
-  padding: '3px 10px',
-} as const
-
 export function BioExamples() {
   return (
-    <section
-      id="bio"
-      style={{
-        padding: '80px clamp(20px, 5vw, 32px)',
-        background: 'var(--sand)',
-        borderTop: '1px solid var(--line)',
-        borderBottom: '1px solid var(--line)',
-      }}
-    >
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ maxWidth: 660 }}>
-          <div
-            style={{
-              fontSize: 13,
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--accent)',
-            }}
-          >
-            Your mini bio site
-          </div>
-          <h2
-            style={{
-              fontFamily: 'var(--font-roboto), sans-serif',
-              fontWeight: 700,
-              fontSize: 'clamp(30px,3.6vw,46px)',
-              lineHeight: 1.04,
-              letterSpacing: '-0.025em',
-              margin: '12px 0 0',
-            }}
-          >
-            More than a link in bio. Your whole practice on one page.
-          </h2>
-          <p style={{ fontSize: 17, color: 'var(--ink-soft)', margin: '16px 0 0' }}>
-            Your headshot, name, license and credentials, contact details, and every important
-            link — fully customizable to match your brand. Pick your colors, reorder your links,
-            and embed live calculators anywhere on the page.
+    <section id="bio" style={{ background: 'var(--pale)', padding: '104px clamp(20px, 5vw, 96px)' }}>
+      <div style={{ maxWidth: 1248, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 52 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 720 }}>
+          <Eyebrow>Your mini bio site</Eyebrow>
+          <h2 style={h2Style}>More than a link in bio. Your whole practice on one page.</h2>
+          <p style={{ margin: 0, fontSize: 17.5, lineHeight: 1.55, color: 'var(--ink-soft)' }}>
+            Your headshot, name, licence, contact details, and every important link — fully customizable to match your brand.
           </p>
           <a
             href={DEMO_URL}
@@ -103,103 +80,55 @@ export function BioExamples() {
             rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
+              alignSelf: 'flex-start',
               alignItems: 'center',
               gap: 10,
-              marginTop: 24,
-              minHeight: 44,
-              padding: '12px 22px',
-              background: 'var(--bg)',
-              border: '1px solid rgba(41,82,204,0.35)',
-              borderRadius: 'var(--r)',
-              fontSize: 14.5,
-              fontWeight: 600,
+              marginTop: 6,
+              minHeight: 48,
+              padding: '0 22px',
+              background: '#fff',
+              border: '1px solid rgba(31,80,210,0.35)',
+              borderRadius: 'var(--pill)',
+              fontSize: 15,
+              fontWeight: 700,
               color: 'var(--ink)',
               textDecoration: 'none',
               animation: 'pulse-glow 2.8s ease-in-out infinite',
             }}
           >
-            <span
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-                background: 'var(--accent)',
-                flexShrink: 0,
-                animation: 'dot-pulse 2.8s ease-in-out infinite',
-              }}
-            />
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', animation: 'dot-pulse 2.8s ease-in-out infinite' }} />
             See a real one — Mike&apos;s live page →
           </a>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit,minmax(min(240px, 100%),1fr))',
-            gap: 24,
-            marginTop: 48,
-            justifyItems: 'center',
-          }}
-        >
-          {phones.map(phone => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 24 }}>
+          {cards.map(c => (
             <div
-              key={phone.name}
-              style={{
-                width: '100%',
-                maxWidth: 270,
-                background: phone.background,
-                borderRadius: 28,
-                boxShadow: '0 24px 48px -28px rgba(13,21,18,0.3)',
-                overflow: 'hidden',
-                padding: '26px 18px 20px',
-                textAlign: 'center',
-                color: '#fff',
-              }}
+              key={c.name}
+              style={{ background: c.background, border: c.border, color: c.color, borderRadius: 32, padding: '32px 26px 26px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, textAlign: 'center' }}
             >
-              <div
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  border: '4px solid rgba(255,255,255,0.85)',
-                  overflow: 'hidden',
-                  background: 'rgba(255,255,255,0.2)',
-                  margin: '0 auto',
-                }}
-              >
-                <Avatar person={phone.person} size={60} />
+              <div style={{ width: 96, height: 96, borderRadius: '50%', overflow: 'hidden', border: `5px solid ${c.ring}` }}>
+                <Avatar person={c.person} size={96} />
               </div>
-              <div style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 600, fontSize: 17, marginTop: 10 }}>
-                {phone.name}
-              </div>
-              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.78)' }}>{phone.role}</div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginTop: 10 }}>
-                <span style={chipStyle}>Email</span>
-                <span style={chipStyle}>Call</span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 14 }}>
-                {phone.links.map(link => (
+              <div style={{ fontWeight: 800, fontSize: 22, marginTop: 4 }}>{c.name}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: c.subtle }}>{c.role}</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '100%', marginTop: 10 }}>
+                {c.links.map((label, i) => (
                   <div
-                    key={link.label}
+                    key={label}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: link.primary ? '#fff' : 'rgba(255,255,255,0.16)',
-                      color: link.primary ? phone.primaryText : '#fff',
-                      borderRadius: 10,
-                      padding: '10px 12px',
-                      fontSize: 12,
-                      fontWeight: 600,
+                      justifyContent: 'center',
+                      height: 46,
+                      background: i === 0 ? c.primaryBg : c.rowBg,
+                      color: i === 0 ? c.primaryColor : c.rowColor,
+                      borderRadius: 'var(--pill)',
+                      fontSize: 14,
+                      fontWeight: i === 0 ? 800 : 700,
                     }}
                   >
-                    <span>{link.label}</span>
-                    <span
-                      style={link.primary ? undefined : { color: 'rgba(255,255,255,0.7)' }}
-                      aria-hidden="true"
-                    >
-                      {link.primary ? '→' : link.glyph}
-                    </span>
+                    {label}
                   </div>
                 ))}
               </div>

@@ -1,31 +1,19 @@
 import type { Metadata } from 'next'
-import { Roboto, Space_Grotesk, Hanken_Grotesk } from 'next/font/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 
-// Set NEXT_PUBLIC_GA_ID in Vercel to switch analytics on. Left unset (e.g. in
-// local dev) nothing loads and the CSP in next.config.ts stays locked down.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID
-
-const roboto = Roboto({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-roboto',
+  variable: '--font-bricolage',
+  display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-})
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-hanken-grotesk',
+  variable: '--font-mono',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -47,15 +35,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${roboto.variable} ${spaceGrotesk.variable} ${hankenGrotesk.variable}`}
-      style={{ fontFamily: 'var(--font-hanken-grotesk), sans-serif' }}
+      className={`${bricolage.variable} ${mono.variable}`}
+      style={{ fontFamily: 'var(--font-bricolage), "Helvetica Neue", Arial, sans-serif' }}
     >
       <body>
         <Nav />
-        <main className="pt-16">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
-      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   )
 }

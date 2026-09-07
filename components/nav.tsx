@@ -12,8 +12,8 @@ const NAV_LINKS = [
 ]
 
 const demoDot = {
-  width: 6,
-  height: 6,
+  width: 7,
+  height: 7,
   borderRadius: '50%',
   background: 'var(--accent)',
   flexShrink: 0,
@@ -29,57 +29,39 @@ export function Nav() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(255,255,255,0.82)',
+        background: 'rgba(255,255,255,0.88)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--line)',
-        padding: '16px clamp(20px, 5vw, 32px)',
+        padding: '0 clamp(20px, 5vw, 96px)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, maxWidth: 1200, margin: '0 auto' }}>
-        {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, height: 80, maxWidth: 1248, margin: '0 auto' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'var(--ink)' }}>
           <span
             style={{
-              display: 'inline-flex',
+              width: 36,
+              height: 36,
+              borderRadius: 12,
+              background: 'var(--accent)',
+              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 32,
-              height: 32,
-              borderRadius: 9,
-              background: 'var(--ink)',
-              fontFamily: 'var(--font-roboto), sans-serif',
-              fontWeight: 900,
-              fontStyle: 'italic',
-              fontSize: 14,
-              letterSpacing: '-0.01em',
+              fontWeight: 800,
+              fontSize: 15,
+              color: '#fff',
               flexShrink: 0,
             }}
           >
-            <span style={{ color: '#fff' }}>S</span>
-            <span style={{ color: 'var(--accent)' }}>C</span>
+            SC
           </span>
-          <span
-            style={{
-              fontFamily: 'var(--font-roboto), sans-serif',
-              fontWeight: 900,
-              fontStyle: 'italic',
-              letterSpacing: '-0.02em',
-              fontSize: 22,
-              color: 'var(--ink)',
-            }}
-          >
+          <span style={{ fontWeight: 800, fontSize: 23, letterSpacing: '-0.02em' }}>
             Social<span style={{ color: 'var(--accent)' }}>Calcs</span>
           </span>
         </Link>
 
-        {/* Center links — desktop */}
-        <nav className="hidden md:flex" style={{ gap: 28, alignItems: 'center' }}>
+        <nav className="hidden md:flex" style={{ gap: 30, alignItems: 'center' }}>
           {NAV_LINKS.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              style={{ fontSize: 14.5, fontWeight: 500, color: 'var(--ink-soft)', textDecoration: 'none' }}
-            >
+            <Link key={label} href={href} style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-soft)', textDecoration: 'none' }}>
               {label}
             </Link>
           ))}
@@ -87,24 +69,15 @@ export function Nav() {
             href={DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              fontSize: 14.5,
-              fontWeight: 600,
-              color: 'var(--accent)',
-              textDecoration: 'none',
-            }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 15, fontWeight: 700, color: 'var(--accent)', textDecoration: 'none' }}
           >
             <span style={demoDot} />
             Live demo
           </a>
         </nav>
 
-        {/* Right CTAs — desktop */}
-        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 14 }}>
-          <a href={`${APP_URL}/login`} style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--ink-soft)', textDecoration: 'none' }}>
+        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 18 }}>
+          <a href={`${APP_URL}/login`} style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink-soft)', textDecoration: 'none' }}>
             Log in
           </a>
           <a
@@ -112,13 +85,13 @@ export function Nav() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 7,
-              fontSize: 14.5,
-              fontWeight: 600,
-              color: '#fff',
+              height: 44,
+              padding: '0 20px',
               background: 'var(--ink)',
-              padding: '11px 18px',
-              borderRadius: 'var(--r)',
+              color: '#fff',
+              borderRadius: 'var(--pill)',
+              fontSize: 15,
+              fontWeight: 700,
               textDecoration: 'none',
               transition: 'background 0.18s ease',
             }}
@@ -129,129 +102,46 @@ export function Nav() {
           </a>
         </div>
 
-        {/* Hamburger — mobile */}
         <button
           className="flex md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            color: 'var(--ink)',
-            // 44px keeps the tap target comfortable on a phone.
-            width: 44,
-            height: 44,
-            marginRight: -11,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink)', width: 44, height: 44, marginRight: -11, alignItems: 'center', justifyContent: 'center' }}
         >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
             {open ? (
               <>
-                <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="18" y1="4" x2="4" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M5 5l14 14" />
+                <path d="M19 5L5 19" />
               </>
             ) : (
               <>
-                <line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="3" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="3" y1="17" x2="19" y2="17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
               </>
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile drawer */}
       {open && (
-        <div
-          style={{
-            borderTop: '1px solid var(--line)',
-            marginTop: 12,
-            paddingTop: 16,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 14,
-          }}
-        >
+        <div style={{ borderTop: '1px solid var(--line)', padding: '12px 0 20px', display: 'flex', flexDirection: 'column', gap: 4 }}>
           {NAV_LINKS.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={() => setOpen(false)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                minHeight: 44,
-                fontSize: 16,
-                fontWeight: 500,
-                color: 'var(--ink)',
-                textDecoration: 'none',
-              }}
-            >
+            <Link key={label} href={href} onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', minHeight: 44, fontSize: 16, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none' }}>
               {label}
             </Link>
           ))}
-          <a
-            href={DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              minHeight: 44,
-              fontSize: 16,
-              fontWeight: 600,
-              color: 'var(--accent)',
-              textDecoration: 'none',
-            }}
-          >
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 8, minHeight: 44, fontSize: 16, fontWeight: 700, color: 'var(--accent)', textDecoration: 'none' }}>
             <span style={demoDot} />
             Live demo
           </a>
-          <div style={{ display: 'flex', gap: 10, marginTop: 4, alignItems: 'center' }}>
-            <a
-              href={`${APP_URL}/login`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: 44,
-                padding: '0 18px',
-                flex: 1,
-                fontSize: 15,
-                fontWeight: 600,
-                color: 'var(--ink)',
-                background: 'var(--card)',
-                border: '1px solid var(--line)',
-                borderRadius: 'var(--r)',
-                textDecoration: 'none',
-              }}
-            >
+          <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+            <a href={`${APP_URL}/login`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, minHeight: 48, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 'var(--pill)', fontSize: 15, fontWeight: 700, color: 'var(--ink)', textDecoration: 'none' }}>
               Log in
             </a>
-            <a
-              href={`${APP_URL}/signup`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: 44,
-                padding: '0 18px',
-                flex: 1,
-                fontSize: 15,
-                fontWeight: 600,
-                color: '#fff',
-                background: 'var(--ink)',
-                borderRadius: 'var(--r)',
-                textDecoration: 'none',
-              }}
-            >
+            <a href={`${APP_URL}/signup`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, minHeight: 48, background: 'var(--ink)', borderRadius: 'var(--pill)', fontSize: 15, fontWeight: 700, color: '#fff', textDecoration: 'none' }}>
               Get started
             </a>
           </div>

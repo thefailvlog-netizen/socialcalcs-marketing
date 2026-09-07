@@ -12,7 +12,7 @@ export default function OGImage() {
         style={{
           width: '1200px',
           height: '630px',
-          background: '#101216',
+          background: '#0f1a33',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -30,7 +30,7 @@ export default function OGImage() {
             transform: 'translateX(-50%)',
             width: '700px',
             height: '400px',
-            background: 'radial-gradient(ellipse at center, rgba(41,82,204,0.22) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(31,80,210,0.22) 0%, transparent 70%)',
             display: 'flex',
           }}
         />
@@ -51,7 +51,7 @@ export default function OGImage() {
           }}
         >
           <span style={{ color: '#ffffff' }}>S</span>
-          <span style={{ color: '#2952CC' }}>C</span>
+          <span style={{ color: '#1f50d2' }}>C</span>
         </div>
         <div
           style={{
@@ -64,7 +64,7 @@ export default function OGImage() {
             display: 'flex',
           }}
         >
-          Social<span style={{ color: '#2952CC' }}>Calcs</span>
+          Social<span style={{ color: '#1f50d2' }}>Calcs</span>
         </div>
         <div
           style={{
@@ -85,14 +85,14 @@ export default function OGImage() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(41,82,204,0.18)',
-            border: '1px solid rgba(41,82,204,0.35)',
+            background: 'rgba(31,80,210,0.18)',
+            border: '1px solid rgba(31,80,210,0.35)',
             borderRadius: '999px',
             padding: '8px 20px',
           }}
         >
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2952CC', display: 'flex' }} />
-          <span style={{ fontSize: '15px', fontWeight: 600, color: '#5B7FE8', display: 'flex' }}>socialcalcs.com</span>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#1f50d2', display: 'flex' }} />
+          <span style={{ fontSize: '15px', fontWeight: 600, color: '#a8b8ef', display: 'flex' }}>socialcalcs.com</span>
         </div>
       </div>
     ),

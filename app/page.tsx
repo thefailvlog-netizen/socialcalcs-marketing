@@ -1,6 +1,5 @@
 import { Hero } from '@/components/sections/hero'
 import { HowItWorks } from '@/components/sections/how-it-works'
-import { AiCallout } from '@/components/sections/ai-callout'
 import { BioExamples } from '@/components/sections/features'
 import { ToolsSection } from '@/components/sections/calculator-preview'
 import { EmbedAnywhere } from '@/components/sections/embed-anywhere'
@@ -15,11 +14,10 @@ export default function Home() {
     <>
       <Hero />
       <HowItWorks />
-      <AiCallout />
-      <BioExamples />
       <ToolsSection />
-      <EmbedAnywhere />
+      <BioExamples />
       <LeadsSection />
+      <EmbedAnywhere />
       <WhoItsFor />
       <CtaBanner />
     </>

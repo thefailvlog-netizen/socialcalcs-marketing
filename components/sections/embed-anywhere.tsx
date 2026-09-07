@@ -63,7 +63,7 @@ export function EmbedAnywhere() {
   }, [])
 
   return (
-    <section id="embed" style={{ padding: '88px clamp(20px, 5vw, 32px)' }}>
+    <section id="embed" style={{ padding: '104px clamp(20px, 5vw, 96px)', background: 'var(--pale)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ maxWidth: 660 }}>
           <div

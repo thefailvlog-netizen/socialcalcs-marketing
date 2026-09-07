@@ -1,16 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Page is pure white; --card and --sand carry the tonal steps. */
+  /* Navy → cobalt system. Page is white; --card / --pale carry the tonal steps. */
   --bg: #ffffff;
-  --ink: #16181d;
-  --ink-soft: #5d626d;
-  --line: #e6e8ec;
-  --card: #f7f8fa;
-  --sand: #eef0f4;
-  --dark: #101216;
-  --accent: #2952CC;
+  --ink: #0f1a33;
+  --ink-soft: #5f6470;
+  --line: #e3e6ee;
+  --card: #f5f7fb;
+  --pale: #f3f5fb;
+  --sand: #f3f5fb;
+  --dark: #0f1a33;
+  --navy: #14213d;
+  --accent: #1f50d2;
+  --tint: #e4e9fb;
+  --soft: #a8b8ef;
+  --grad: linear-gradient(160deg, #14213d 0%, #1f50d2 100%);
+  --grad-dark: linear-gradient(180deg, #14213d 0%, #0b1226 100%);
   --r: 14px;
+  --pill: 999px;
+
+  /* Legacy font aliases so pricing/legal pages pick up the new faces untouched. */
+  --font-roboto: var(--font-bricolage);
+  --font-hanken-grotesk: var(--font-bricolage);
+  --font-space-grotesk: var(--font-mono);
 }
 
 html {
@@ -36,7 +48,6 @@ body {
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  /* Guard against any single element forcing sideways scroll on phones. */
   overflow-x: hidden;
 }
 
@@ -55,11 +66,11 @@ img {
 }
 
 @keyframes dot-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(41,82,204,0.6); }
-  50% { box-shadow: 0 0 0 5px rgba(41,82,204,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31,80,210,0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(31,80,210,0); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(41,82,204,0), 0 0 0 0 rgba(41,82,204,0); }
-  50% { box-shadow: 0 0 14px 2px rgba(41,82,204,0.22), 0 0 0 4px rgba(41,82,204,0.08); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31,80,210,0), 0 0 0 0 rgba(31,80,210,0); }
+  50% { box-shadow: 0 0 14px 2px rgba(31,80,210,0.22), 0 0 0 4px rgba(31,80,210,0.08); }
 }
