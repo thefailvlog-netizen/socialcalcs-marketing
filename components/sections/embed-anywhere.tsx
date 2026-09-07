@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { DEMO_URL } from '@/lib/links'
+import { useEffect, useState } from 'react'
+import { EMBED_KEY, EMBED_URL } from '@/lib/links'
 
 type Device = 'desktop' | 'tablet' | 'mobile'
 
@@ -47,6 +47,20 @@ const bullets = [
 
 export function EmbedAnywhere() {
   const [device, setDevice] = useState<Device>('desktop')
+  const [embedHeight, setEmbedHeight] = useState(600)
+
+  // The embed posts its rendered height (matched by key) so the frame never
+  // shows a scrollbar — the same protocol the customer-facing snippet uses.
+  useEffect(() => {
+    function onMessage(e: MessageEvent) {
+      const d = e.data
+      if (!d || d.type !== 'socialcalcs-embed-height' || d.key !== EMBED_KEY) return
+      if (typeof d.height !== 'number' || !isFinite(d.height) || d.height <= 0) return
+      setEmbedHeight(d.height)
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [])
 
   return (
     <section id="embed" style={{ padding: '88px clamp(20px, 5vw, 32px)' }}>
@@ -82,7 +96,7 @@ export function EmbedAnywhere() {
           <p style={{ fontSize: 17, color: 'var(--ink-soft)', margin: '16px 0 0' }}>
             Design a calculator once, then drop it into your own website, blog, or listing pages
             with a single line of code. It keeps your branding — and keeps capturing leads —
-            wherever it lives.
+            wherever it lives. The calculator below is a real, live one — try it.
           </p>
         </div>
 
@@ -122,7 +136,7 @@ export function EmbedAnywhere() {
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>&gt;&lt;/iframe&gt;</span>
             </div>
             <a
-              href={DEMO_URL}
+              href={EMBED_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -137,7 +151,7 @@ export function EmbedAnywhere() {
                 textDecoration: 'none',
               }}
             >
-              Open a live example in a new tab <span style={{ fontSize: 16 }} aria-hidden="true">↗</span>
+              Open this calculator in a new tab <span style={{ fontSize: 16 }} aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -242,80 +256,18 @@ export function EmbedAnywhere() {
                 </span>
               </div>
 
-              {/* Embedded calculator */}
-              <EmbeddedCalculator />
+              {/* The real thing: a published calculator served by the app's embed route. */}
+              <iframe
+                src={EMBED_URL}
+                data-socialcalcs-key={EMBED_KEY}
+                title="Live mortgage payment calculator"
+                loading="lazy"
+                style={{ display: 'block', width: '100%', border: 'none', overflow: 'hidden', height: embedHeight, minHeight: 520, background: '#fff' }}
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function EmbeddedCalculator() {
-  return (
-    <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-      <div style={{ maxWidth: 520, margin: '0 auto' }}>
-        <div
-          style={{
-            fontFamily: 'var(--font-space-grotesk), sans-serif',
-            fontWeight: 600,
-            fontSize: 13,
-            textTransform: 'uppercase',
-            letterSpacing: '0.03em',
-            color: 'var(--ink-soft)',
-          }}
-        >
-          Mortgage Payment
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(140px, 100%),1fr))', gap: 12, marginTop: 14 }}>
-          {[
-            { label: 'Home price', value: '$650,000' },
-            { label: 'Down payment', value: '$130,000' },
-            { label: 'Rate', value: '4.99%' },
-            { label: 'Term', value: '25 yrs' },
-          ].map(({ label, value }) => (
-            <div key={label} style={{ border: '1px solid var(--line)', borderRadius: 10, padding: '10px 12px' }}>
-              <div style={{ fontSize: 11.5, color: 'var(--ink-soft)' }}>{label}</div>
-              <div style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 600, fontSize: 17 }}>{value}</div>
-            </div>
-          ))}
-        </div>
-        <div
-          style={{
-            marginTop: 16,
-            padding: 16,
-            borderRadius: 10,
-            background: 'var(--card)',
-            display: 'flex',
-            alignItems: 'baseline',
-            justifyContent: 'space-between',
-            gap: 12,
-          }}
-        >
-          <span style={{ fontSize: 13, color: 'var(--ink-soft)' }}>Monthly payment</span>
-          <span style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 700, fontSize: 30, color: 'var(--accent)' }}>
-            $2,847
-          </span>
-        </div>
-        <div
-          style={{
-            marginTop: 14,
-            textAlign: 'center',
-            background: 'var(--accent)',
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: 14.5,
-            padding: 13,
-            borderRadius: 10,
-          }}
-        >
-          Calculate &amp; get my PDF report →
-        </div>
-        <div style={{ marginTop: 12, textAlign: 'center', fontSize: 11, color: 'var(--ink-soft)' }}>
-          Powered by SocialCalcs
-        </div>
-      </div>
-    </div>
   )
 }

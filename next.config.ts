@@ -57,6 +57,8 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               `script-src ${scriptSrc.join(' ')}`,
+              // The live calculator demo is an iframe of the app.
+              'frame-src https://app.socialcalcs.com',
               "frame-ancestors 'none'",
             ].join('; '),
           },

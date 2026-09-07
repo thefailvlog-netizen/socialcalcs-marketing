@@ -90,7 +90,7 @@ export function PricingCards() {
         <Features
           items={[
             '1 mini bio site',
-            'Up to 3 customizable calculators',
+            '1 customizable calculator',
             'Unlimited leads',
             'PDF reports',
             'Email alerts for new leads',
@@ -131,7 +131,7 @@ export function PricingCards() {
           For the pro who&apos;s serious about pipeline.
         </p>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, margin: '18px 0 4px' }}>
-          <span style={priceStyle}>$20</span>
+          <span style={priceStyle}>$10</span>
           <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>/mo</span>
         </div>
         <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.5)', minHeight: 16 }}>billed monthly</div>
@@ -171,7 +171,7 @@ export function PricingCards() {
           For brokerages running as a team.
         </p>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, margin: '18px 0 4px' }}>
-          <span style={priceStyle}>$16</span>
+          <span style={priceStyle}>$8</span>
           <span style={{ fontSize: 14, color: 'var(--ink-soft)' }}>/seat/mo</span>
         </div>
         <div style={{ fontSize: 12.5, color: 'var(--accent)', fontWeight: 600, minHeight: 16 }}>
