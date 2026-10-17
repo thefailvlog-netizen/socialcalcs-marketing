@@ -90,7 +90,7 @@ export function PricingCards() {
         <Features
           items={[
             '1 mini bio site',
-            '1 customizable calculator',
+            '3 customizable calculators',
             'Unlimited leads',
             'PDF reports',
             'Email alerts for new leads',
